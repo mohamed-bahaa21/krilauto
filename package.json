@@ -1,5 +1,5 @@
 {
-  "name": "kikosi-kazi-library",
+  "name": "krilauto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohamed-bahaa21/kikosi-kazi-library.git"
+    "url": "git+https://github.com/mohamed-bahaa21/krilauto.git"
   },
   "keywords": [],
   "author": "mohamed-bahaa21",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mohamed-bahaa21/kikosi-kazi-library/issues"
+    "url": "https://github.com/mohamed-bahaa21/krilauto/issues"
   },
-  "homepage": "https://github.com/mohamed-bahaa21/kikosi-kazi-library#readme",
+  "homepage": "https://github.com/mohamed-bahaa21/krilauto#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
