@@ -1,0 +1,208 @@
+<%- include('./partials/head.ejs') %>
+
+    <!-- multistep form -->
+    <form id="msform">
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">Shopping Cart</li>
+            <li>Payment Methods</li>
+            <li>Checkout</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+            <h2 class="fs-title">Shopping Cart</h2>
+            <!-- <h3 class="fs-subtitle"></h3> -->
+
+            <input type="button" name="next" style="margin: 0 auto;" class="next action-button" value="Next" />
+            <div
+                style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                <span
+                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                </span>
+                <h3 style="margin: 0 auto;">
+                    <div class="price-box" style="display: flex;">
+                        <p class="price">$150.00</p>
+                        <del>$200.00</del>
+                    </div>
+                </h3>
+            </div>
+            <table style="margin: 0 auto; scale: 0.90;">
+                <thead>
+                    <tr>
+                        <th>Cover</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#" class="showcase-img-box">
+                                <img src="images/books/2.jpg" alt="book" class="showcase-img" width="70">
+                            </a>
+                        </td>
+                        <td><a href="#">The best you will here about ever</a></td>
+                        <td>150$</td>
+                        <td>
+                            <div class="showcase-rating">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="delete-btn" style="--fs-11: 0.875rem;">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="showcase-img-box">
+                                <img src="images/books/2.jpg" alt="book" class="showcase-img" width="70">
+                            </a>
+                        </td>
+                        <td><a href="#">The best you will here about ever</a></td>
+                        <td>150$</td>
+                        <td>
+                            <div class="showcase-rating">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="delete-btn" style="--fs-11: 0.875rem;">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#" class="showcase-img-box">
+                                <img src="images/books/2.jpg" alt="book" class="showcase-img" width="70">
+                            </a>
+                        </td>
+                        <td><a href="#">The best you will here about ever</a></td>
+                        <td>150$</td>
+                        <td>
+                            <div class="showcase-rating">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                                <ion-icon name="star-outline"></ion-icon>
+                            </div>
+                        </td>
+                        <td>
+                            <button class="delete-btn" style="--fs-11: 0.875rem;">Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </fieldset>
+
+        <fieldset>
+            <h2 class="fs-title">Payment Methods</h2>
+            <!-- <h3 class="fs-subtitle"></h3> -->
+            <input type="button" name="next" style="margin: 0 auto; display: inline-block" class="next action-button"
+                value="Next" />
+            <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
+                class="previous action-button" value="Previous" />
+
+            <div
+                style="margin: 10px auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                <span
+                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                </span>
+                <h3 style="margin: 0 auto;">
+                    <div class="price-box" style="display: flex;">
+                        <p class="price">$150.00</p>
+                        <del>$200.00</del>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="">
+                <div
+                    style="margin-bottom: 15px; display: flex;justify-content: flex-start;border: 1px solid var(--spanish-gray);padding: 5px 10px; border-radius: 5px;">
+                    <div style="width: 84px; align-self: center; padding-right: 10px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAAwCAMAAAAcuhVsAAAAZlBMVEX///9ncuVlcOVeauRgbORjbuTs7ft5gudbZ+SUm+zJzPWMlOpxe+axtvDv8Pz4+P7z9P1UYePO0fbBxfPj5fqrsO+DjOmYn+y6vvKJkeqkqu61uvHS1fba3PhueOZ1f+dMWuJ+h+gl2SYCAAADyklEQVRYhe2Y2ZqqOhBGM0rJGGZEgc37v+QOZAS1tZveXpzv1BWQ8C+K1BBA6JhV2UGB71ta1DP8OX2YWlOgjGP4NPfM8WL/hnsqevFhbjZcIwyQpx/mJjlblOlXXM5+P66udPXnORcAN3XxbPjHlrCvuV1Z/TbyLe7vWTqEZXirxEvuqXr6MKeiLB68h6wqynB4lBppHctCQCkAm/rBcXG8GM5QsR7hEoWxjPICtaMakXHVmDnlBCAVxmRbPKtWJoaUpk2xxyaUEqyNsPzmuJhIgwyFsBywvgQ5EUJ0ZmQdkdyAL0c0bEBrUDx42j1wLcWh2fp8Buwb+Nz1guSq+B5XDRr6+RsoHON2PgHrWRZQT4hjf4nqLfYrrnboEXcrYVY5YJvrfPSCAfY3HeeSWGm3dDfAWueuRpC1xZAtl3Bp+Y4LT7iM2ael3SI9aJcYHTndvQk0qfvIXBZh18bAPC5pLtJmj0uA8fwhl459V2NLXqQbPatPUVYqBW4dZt7E5bUntHD5a1LCcFlcCCTEo7hK1omRloPBriBVIzd1BkaSbrnSxH3d0Fx+MSlw768eifVj9LLIKxETS8p7G+v6AVnkJ9cTLjU33XOJHhnUTBIgNK+TeK9HVK9h5lQvgkzrqHjJDV/6i/QpIKQd6vTAbdXgjZG0ecQptNVhbquGcpHqFaS5MsMxE2cvV3nenA5y9apCVe0Lg/bfvtRpU8vy8BhXJwxUw2MutVzU53558vrCj7gv/PW4SPQUvLqe/YDLjZa+FU6Wyzfmc6UVERinoTzCvei4ykxcTdHGLmhnotcPyKMjXFeHtFq7B92ZDgkyu5f1ba6pw42pG34l9O2c2EIlNHey/hrO21xhyl/igrP2cXYTdAZ2LhS6s89q+uC4OCze4jZLyalGU64q19mhNjARBiFyElxu56K+nU3T6c3bkk15vgSu/36VR5zGzWT2WEt5tiEmm+P52nVJGzAKPherBm8auOxhbhNCOIG3uOse0ByqruMymDPK1k2F7SxGwtlauWfv6rvcnYS05K50POcStqypX+S+zSXchOrdBsvjbocYVi3p6sDvcV2p5dx9NNSwdSu363ubgZqlJZT2JvZKyoh6+D+Sm7PF7F0yCdZzxx07NZ9wuPg7iGEGs7WWH67Y/5g4lW0gN4OUx1HnbaxFPcloIHEr+0RVJ4vVxpEwUefC6wtq/tj6XwtrdNUzXoTGpt4PLZQ0vf8plKXi5Z8ivx+J9MmPiYfqx2zfBz9l/3P/+1yZmfBp7gQAl+T27M/eP7PrD/5i/QVFwjaQ08Ki2QAAAABJRU5ErkJggg=="
+                            alt="book" class="book-img default" width="100%" style="scale: 0.75;" />
+                    </div>
+                    <br><br>
+                    <div class="" style="align-items: center; text-align: left;">
+                        <span style="display: block;font-size: 0.90em;font-weight: 700;">Stripe</span>
+                        <span style="font-size: 0.75em;
+                color: var(--spanish-gray);
+                font-weight: 400; width: max-content;">Without comission</span>
+                    </div>
+                </div>
+
+                <div
+                    style="margin-bottom: 15px; display: flex;justify-content: flex-start;border: 1px solid var(--spanish-gray);padding: 5px 10px; border-radius: 5px;">
+                    <div style="width: 84px; align-self: center; padding-right: 10px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAAgCAMAAAAfbBf3AAAAxlBMVEX///8AL4YAnN4BIGkAmt0ALIUAmN0AKoQAldwAJ4MAJ3fj8PoAn+EAJYLj5e0AGn8AIoEAEH0AOI0AouDt8Pbn9Pv29/r3/P4AFH1xgrEAHoDv+v2x3fPCyt3R2OfB4vUBGmU+XJ9nvekBcbOyvdZxyO1fd613kb+Szu4wV54qr+QaSZhkgbaOosdPca0aOX8AAHtGaKcBQoxOuugBEF+h3PQUP4+Gl7+m1PCD0PCfqslMruMAe8DX8PoAZqsBLHYBWJo4ltCTVHCOAAAEo0lEQVRIidWWeXOySBCHGTLDETkMh0TlUIIEvN74ukFFye5+/y+13YNGUGvdyh9WbVcqo804P7rn6Z4RBEFwZoyczMrnifAgS17J2Zj6aoWP0V10Sctk03iEbG+ut3WJvnyIbi5f6JKX3iN0LXal+4hEO0esnk9GiNm5mGKczPHuL+i5nZMNbz3GBzCGte7z07eNfvmt5Z3+xws3k6yS+1tQrZXaJHsdXb9nJCoKhbEcXOo+PSufzZnhSv2uMnNxVzeaUrE2SiX/6vHOpnQKY41zU3b0W5SaGUpyJMAiqM7uV7dvU5Hamobq1L4KeKKJdA1jHUxT94+DKDUDTgpG1P5i07dw5t2AtxjqJMtiDT9El49jUZQmMNY4t7aXitKuMbOEQlMR8TFO3XDfv/CVSSKdAjlDGyP2L6fvKY+qd4nV6OnQ1vU2XcJmqJuibikIRpCUSWAYQRCEXoj/64n40XBjSPParRV4vFXkb/3IdaMoqgQXvEoF0Ly0dUdPXzC9yYPR14m6BF0P4sX9DfqFaZqk359ZJHU2hWXNOOXh2LKsslqD7mRYx0vtoefHtiRJ9iS2bW3nReCVIPzE5LpH0dHo9xu+peKedcOlStQ0NMIStoTlXjLrMiarsiwz1u07SSGzVzzEnPmA6asQcZZ2VVUBQEhQZksUjeOdeZ+Asw2z3/mp8DzC8vnz119fB14A08Z+BdBI2ThNVwTSrJfhTCWytUo55INFzxnLRE8RA53Is6TGeR/HUxFGGkU42Os132xI466Fc/H1BnY4KBqHULnEGSpXB7qYOe8tu0QeJ2EYpOAwAyhErC54vYIx690R/LpyeYDSzsNi3vtV5R93+4RzwXHORY1bXe/StFW+eG7IOphZbAxjQFhRcj/cF7ph/V6DsLeCcIECD3CudalkZ8NIgWg5LFtMcHXCWeDba30dFfm7StNW0WFDY6s0Tftl4AilSeSVUeefsSLEAw3K+30xIHIO0SPOogZ5jidb6JITKKo9X8bHPlVxnGF5g+NsvWniKT2SFrdknXdMbICnglfzoKan/MtjfANM9AyzvIEJFZZRHAFXLk4HuMWYT4d2QmM3Qt3hEWdWHLiuNp1O4yxym7JCmKpE7zunr6DLMC7wA09z1A2Qc/hb4iSOc/a9T1hUe1ywwgSfceaXHDZTeLQZvOXV2RUCr4Dt925Dn7FWZbJYIs4b/j78YijPePfg9Xmu/h3sthZ/+tkeudlCVVGOc8qb/Yz3cO368MBoYFXzfMl0LOS6yKFqAeeEN8B3BN4q622krabckSBg0bZtzvcZZ95yWa7xs+Oqh/MAdVkeBI3vpgo51dWiUGWz9ieom/KUeFuFthbKFA6NiMrgjyWqYA8mMvYdjjNdVzfjzfN83rj49IIlMeVxmaR5ntb+JTs2cND1gZFJgxBwaFRb+/6a+yfwGG8b8OM8X/3Ntze+qdtzwFoevPY4Pe/bv8E76GknPNd1W4iAo+O63tE/hIGvgdZZ8yaW3boO3TcEQJ//5Jcuv5kAbT8x7M+y9R/ue9fWsfEaZt/E+a4tBh8fH8H9ebfM4/az3wo9z3vEPf9/bf8Am4p1OXgAohQAAAAASUVORK5CYII="
+                            alt="book" class="book-img default" width="100%" style="scale: 0.75;" />
+                    </div>
+                    <br><br>
+                    <div class="" style="align-items: center; text-align: left;">
+                        <span style="display: block;font-size: 0.90em;font-weight: 700;">PayPal</span>
+                        <span style="font-size: 0.75em;
+                color: var(--spanish-gray);
+                font-weight: 400; width: max-content;">Without comission</span>
+                    </div>
+                </div>
+
+                <div
+                    style="display: flex;justify-content: flex-start;border: 1px solid var(--spanish-gray);padding: 5px 10px; border-radius: 5px;">
+                    <div style="width: 84px; align-self: center; padding-right: 10px;">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAABXCAMAAAAJSyqOAAAAwFBMVEX///85tUrY49Ivs0L1+PTx9e/y+fLtHCQ/t0/v+PA1tEcnsTzi8uQWrjCR0Zkrsj+j16lUvGHp8Obe59nsAADp9eqw3bWf1qW74r/U7NdIuVdfwGvK6M11x39txHcArCiCy4r609PxbW796emLz5LuNTnsAAz0dnrm0sf0k5TtCBbmZF34v8DyXWLs3NPWvLm6iIThzcyXPTK/nJjvRUm9opiYTkWlRj7VHh/jfHPRrKevUUiyEge7JR34p6nzioqqbnYYAAADfUlEQVRoge2Y23LaMBCGJeQYW7KQTSDgA+A0hDRpmrbp+Zj3f6vu6oCN7fSiMyGdjv4bkLzeT7valRgI8fLy8vLy8vLy8vqvNT15FuzJaBQ8B3d6TG7Q6IjcYHSoY3FHz8M9eXJuiOoNNffUynJDJ2sahG3ZyTivqnwePA6wSiSllO2HlYBhpLmn+5eDU+TG+AgVZXWO0xNGGwk9la+VFELKwljohXB83ANrrkjdsAArbrhtK8PlBsE5EzVyVZd7Ju1SwKK0r6a4XHE2yOXUxlbpkeZO21ZTFy9njCFebG28zEoCN9nghFBowVb2VYrmPBvk7gPOeJ97/uJiz2XryWSyxjg3c8PdToy2CSE1TKhttdxGgonEvL00uyPzQS6PdMB6d7vcy93s6mVuuCZfmBWVIhdNG+lN0t/y9ZrsI+ERTK/JoQzXOiw55V3u9Ww8vpm9Om9x0Y5NhrmiMt/Dxj3HcCA/PW6BOFyloLzocG8BC7rZvb5Te+6KUbbVeY5i20aBmYZElMu4cW8sqV5nl8tL8IAe15wq2A/HffMWNnc3Nrq5nDbxQlxqYfZXGW0wTF1XlAuRufLFHMmELGDJqs/NAghakByXEErLjd/d37+30Y7Huw8uz0EQ1koXSrt/TXorYXoN0CbdAOTQUHP0v+xzyRYDhnBlHhtuOPp4/+nzF4vdzb7aPoqiiGKT8oL04wXAIrNoiRNBxA0PXHdayXDn4BNswNtccy++ff/x88vuBrSbzS4f7nJ3XnEbUG65k4VRsneYlkjWGN1ESRyHZ8KdaIdc3Xp6kXOX57vbX9cPV1cP17cXnXODKZkhplfPuS3iXPsKdd3rpeoPVg9wE+20IA138LziZV3X29QE1+OWbg9h26iMXY86sVadO67uAXztz9yDc/agj6CRoA1FkcJdlETYyIFOIhNGvH0LtLi54Kwgj3FPH+NSabVZkBLrTcioQIhaEWgNaN6lUaarp88l9bpctrkD99EQ1wnOzYo2lcdorLtWussUK0tWLe5GifY65huluLl/2+EiVyolD7hCNZKYxAWXcBlB7ckSjkWwF+5WIgGOyubleJGmbWchjNPB3zkBPFm0e6FCUyf7JE9XZbbSXZWg/b69yBkYdc7KAT397yvP9VzP9VzP/St1uUfCkvgQe7z/kYJpS8/yL5KXl5eXl5eXl5fXv6TfDPdClId82vMAAAAASUVORK5CYII="
+                            alt="book" class="book-img default" width="100%">
+                    </div>
+                    <br><br>
+                    <div class="" style="align-items: center; text-align: left;">
+                        <span style="display: block;font-size: 0.90em;font-weight: 700;">M-Pesa</span>
+                        <span style="font-size: 0.75em;
+                color: var(--spanish-gray);
+                font-weight: 400; width: max-content;">Without comission</span>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </fieldset>
+
+        <fieldset>
+            <h2 class="fs-title">Checkout</h2>
+            <!-- <h3 class="fs-subtitle"></h3> -->
+
+            <input type="submit" name="submit" style="margin: 0 auto; display: inline-block"
+                class="submit action-button" value="Submit" />
+            <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
+                class="previous action-button" value="Previous" />
+
+            <div
+                style="margin: 10px auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                <span
+                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                </span>
+                <h3 style="margin: 0 auto;">
+                    <div class="price-box" style="display: flex;">
+                        <p class="price">$150.00</p>
+                        <del>$200.00</del>
+                    </div>
+                </h3>
+            </div>
+
+        </fieldset>
+    </form>
+
+    <%- include('./partials/tail.ejs') %>
