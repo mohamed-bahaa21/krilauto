@@ -20,15 +20,15 @@
   --eerie-black: hsl(0, 0%, 13%);
   /* --salmon-pink: hsl(353, 100%, 78%); */
   /* --bittersweet: hsl(0, 100%, 70%); */
-  --salmon-pink: #ebc681;
-  --bittersweet: #d59b30;
+  --salmon-pink: #da6c6c;
+  --bittersweet: #bd3030;
   --sandy-brown: hsl(29, 90%, 65%);
   --ocean-green: hsl(152, 51%, 52%);
   --ocean-red: hsl(0, 51%, 52%);
-  --davys-gray: hsl(0, 0%, 33%);
+  --davys-gray: hsl(0, 5%, 36%);
   --cultured: #ededed;
   --white: hsl(0, 100%, 100%);
-  --onyx: hsl(0, 0%, 27%);
+  --onyx: hsl(0, 3%, 29%);
 
   /**
    * typography

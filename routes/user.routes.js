@@ -3,8 +3,6 @@ const router = express.Router();
 const { upload } = require('../services/multer')
 
 const Users = require('../models/Users.models');
-const Categories = require('../models/Categories.models');
-const Books = require('../models/Books.models');
 
 const {
   ensureAuthenticated,
