@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const ObjectID = mongoose.Schema.Types.ObjectId;
 
-const UserSchema = new mongoose.Schema({
+const AgencySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -16,16 +16,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  reserves: [{
-    reserveId: {
+  verified: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
+  cars: [{
+    carId: {
       type: ObjectID,
-      ref: 'Reserve',
+      ref: 'Car',
       required: true
     },
   }],
 });
 
 
-const User = mongoose.model('User', UserSchema);
+const Agency = mongoose.model('Agency', AgencySchema);
 
-module.exports = User;
+module.exports = Agency;
