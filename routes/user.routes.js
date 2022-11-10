@@ -202,15 +202,15 @@ router.get('/history', async (req, res) => {
 });
 
 // Book
-router.get('/book', async (req, res) => {
+router.get('/car', async (req, res) => {
   try {
     const book = await Books.findOne({ name: req.params.book }).populate('books.book');
-    res.render('book', {
+    res.render('car', {
       user: req.user,
-      book: book,
+      car: car,
     });
   } catch (error) {
-    res.render('book', {
+    res.render('car', {
       user: req.user,
     });
   }

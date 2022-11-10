@@ -1,0 +1,387 @@
+<%- include('./partials/head.ejs') %>
+
+
+
+  <!--
+    - MAIN
+  -->
+
+  <main>
+
+
+    <!--
+      - car
+    -->
+
+    <div class="car-container">
+
+      <div class="container">
+
+
+        <!--
+          - SIDEBAR
+        -->
+
+        <%- include('partials/mobile-sidebar.ejs') %>
+
+
+
+        <div class="car-box">
+
+
+          <!--
+            - car FEATURED
+          -->
+
+          <div class="car-featured">
+            <div class="showcase-container">
+
+              <div class="showcase">
+
+                <div class="showcase-banner">
+                  <img src="images/cars/car.jpeg" alt="car" class="showcase-img">
+                </div>
+
+                <div class="showcase-content">
+
+                  <div class="showcase-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                  </div>
+
+                  <h3 class="showcase-title">
+                    <a href="#" class="showcase-title">The best car ever</a>
+                  </h3>
+
+                  <p class="showcase-desc">
+                    Lorem ipsum dolor sit amet consectetur Lorem ipsum
+                    dolor dolor sit amet consectetur Lorem ipsum dolor
+                  </p>
+
+                  <div class="price-box">
+                    <p class="price">$1990.00</p>
+                    <del>$2000.00</del>
+                  </div>
+
+                  <button class="add-cart-btn" style="display: inline-block;">
+                    <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                  </button>
+
+                  <div class="countdown-box">
+
+                    <p class="countdown-desc">Hurry Up! Offer ends in:</p>
+
+                    <div class="countdown">
+                      <div class="countdown-content">
+                        <p class="display-number">2</p>
+                        <p class="display-text">Days</p>
+                      </div>
+
+                      <div class="countdown-content">
+                        <p class="display-number">24</p>
+                        <p class="display-text">Hours</p>
+                      </div>
+
+                      <div class="countdown-content">
+                        <p class="display-number">59</p>
+                        <p class="display-text">Min</p>
+                      </div>
+
+                      <div class="countdown-content">
+                        <p class="display-number">0</p>
+                        <p class="display-text">Sec</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!--
+      - TESTIMONIALS, CTA & SERVICE
+    -->
+
+    <div>
+
+      <div class="container">
+
+        <div class="testimonials-box">
+
+          <!--
+            - TESTIMONIALS
+          -->
+
+          <div class="testimonial">
+
+            <h2 class="title">testimonial</h2>
+
+            <div class="testimonial-card">
+
+              <img src="images/testimonial-1.jpg" alt="Mr Reviewer" class="testimonial-banner" width="80"
+                height="80">
+
+              <p class="testimonial-name">Mr Reviewer</p>
+
+              <p class="testimonial-title">CEO & Founder of World</p>
+
+              <ion-icon name="stats-chart-outline"></ion-icon>
+
+              <p class="testimonial-desc">
+                Lorem ipsum dolor sit amet consectetur Lorem ipsum
+                dolor dolor sit amet.
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+          <!--
+            - CTA
+          -->
+
+          <div class="cta-container">
+
+            <img src="images/cta-banner.jpg" alt="Collection Offer" class="cta-banner">
+
+            <a href="#" class="cta-content">
+
+              <h2 class="cta-title">Collection Offer</h2>
+
+              <p class="discount">25% Discount on 5 cars</p>
+
+            </a>
+
+          </div>
+
+
+
+          <!--
+            - SERVICE
+          -->
+
+          <div class="service">
+
+            <h2 class="title">Our Services</h2>
+
+            <div class="service-container">
+
+              <a href="#" class="service-item">
+
+                <div class="service-icon">
+                  <ion-icon name="boat-outline"></ion-icon>
+                </div>
+
+                <div class="service-content">
+
+                  <h3 class="service-title">Worldwide Delivery</h3>
+                  <p class="service-desc">For Order Over $100</p>
+
+                </div>
+
+              </a>
+
+              <a href="#" class="service-item">
+
+                <div class="service-icon">
+                  <ion-icon name="rocket-outline"></ion-icon>
+                </div>
+
+                <div class="service-content">
+
+                  <h3 class="service-title">Next Day delivery</h3>
+                  <p class="service-desc">UK Orders Only</p>
+
+                </div>
+
+              </a>
+
+              <a href="#" class="service-item">
+
+                <div class="service-icon">
+                  <ion-icon name="call-outline"></ion-icon>
+                </div>
+
+                <div class="service-content">
+
+                  <h3 class="service-title">Best Online Support</h3>
+                  <p class="service-desc">Hours: 8AM - 11PM</p>
+
+                </div>
+
+              </a>
+
+              <a href="#" class="service-item">
+
+                <div class="service-icon">
+                  <ion-icon name="arrow-undo-outline"></ion-icon>
+                </div>
+
+                <div class="service-content">
+
+                  <h3 class="service-title">Return Policy</h3>
+                  <p class="service-desc">Easy & Free Return</p>
+
+                </div>
+
+              </a>
+
+              <a href="#" class="service-item">
+
+                <div class="service-icon">
+                  <ion-icon name="ticket-outline"></ion-icon>
+                </div>
+
+                <div class="service-content">
+
+                  <h3 class="service-title">30% money back</h3>
+                  <p class="service-desc">For Order Over $100</p>
+
+                </div>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <!--
+      - BLOG
+    -->
+
+    <div class="blog">
+
+      <div class="container">
+
+        <div class="blog-container has-scrollbar">
+
+          <div class="blog-card">
+
+            <a href="#">
+              <img src="images/blog-1.jpg" alt="car" width="300" class="blog-banner">
+            </a>
+
+            <div class="blog-content">
+
+              <a href="#" class="blog-category">History</a>
+
+              <h3>
+                <a href="#" class="blog-title">How to read a history car.</a>
+              </h3>
+
+              <p class="blog-meta">
+                By <cite>Krilauto</cite> / <time datetime="2022-11-06">11 Nov, 2022</time>
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="blog-card">
+
+            <a href="#">
+              <img src="images/blog-2.jpg" alt="car" class="blog-banner" width="300">
+            </a>
+
+            <div class="blog-content">
+
+              <a href="#" class="blog-category">History</a>
+
+              <h3>
+                <a href="#" class="blog-title">How to read a history car.</a>
+              </h3>
+
+              <p class="blog-meta">
+                By <cite>Krilauto</cite> / <time datetime="2022-11-06">11 Nov, 2022</time>
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="blog-card">
+
+            <a href="#">
+              <img src="images/blog-3.jpg" alt="car" class="blog-banner" width="300">
+            </a>
+
+            <div class="blog-content">
+
+              <a href="#" class="blog-category">History</a>
+
+              <h3>
+                <a href="#" class="blog-title">How to read a history car.</a>
+              </h3>
+
+              <p class="blog-meta">
+                By <cite>Krilauto</cite> / <time datetime="2022-11-06">11 Nov, 2022</time>
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="blog-card">
+
+            <a href="#">
+              <img src="images/blog-4.jpg" alt="car" class="blog-banner" width="300">
+            </a>
+
+            <div class="blog-content">
+
+              <a href="#" class="blog-category">History</a>
+
+              <h3>
+                <a href="#" class="blog-title">How to read a history car.</a>
+              </h3>
+
+              <p class="blog-meta">
+                By <cite>Krilauto</cite> / <time datetime="2022-11-06">11 Nov, 2022</time>
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <%- include('./partials/tail.ejs') %>
