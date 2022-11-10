@@ -590,7 +590,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 main {
-  background-color: rgb(251 239 239 / 50%);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .header-main {
   padding: 20px 0;
@@ -2409,7 +2409,7 @@ footer {
 
   .banner-text {
     display: block;
-    color: var(--sonic-silver);
+    color: var(--white);
     font-size: var(--fs-7);
     font-weight: var(--weight-500);
     margin-bottom: 10px;

@@ -33,7 +33,7 @@ table td {
   padding: 15px 30px;
   text-align: left;
   /* border: 1px solid var(--spanish-gray); */
-  border-radius: var(--border-radius-sm);
+  /* border-radius: var(--border-radius-sm); */
 }
 table td:nth-child(1),
 table th:nth-child(1) {
@@ -56,7 +56,7 @@ table th:nth-child(4) {
   width: fit-content;
 }
 table thead {
-  background-color: var(--salmon-pink);
+  background-color: var(--eerie-black);
   color: #fdfdfd;
 }
 table tbody tr:nth-child(odd) {

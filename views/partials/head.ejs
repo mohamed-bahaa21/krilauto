@@ -30,6 +30,77 @@
 
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+  <style>
+    .daterangepicker .calendar-table th,
+    .daterangepicker .calendar-table td {
+      line-height: inherit;
+      white-space: inherit;
+      vertical-align: inherit;
+      min-width: inherit;
+      width: inherit;
+      height: inherit;
+      line-height: inherit;
+      border-radius: inherit;
+      border: inherit;
+      white-space: inherit;
+      cursor: pointer;
+      /* font-size: inherit; */
+      /* text-align: inherit; */
+    }
+
+    .daterangepicker td.available,
+    .daterangepicker th.available {
+      background-color: var(--white)
+    }
+
+    .daterangepicker td.in-range {
+      background-color: #f8ebeb;
+    }
+
+    .daterangepicker td.active,
+    .daterangepicker td.active:hover {
+      background-color: #1a100f;
+      color: #fff;
+    }
+
+    table td {
+      padding: 10px;
+    }
+
+    .daterangepicker .drp-buttons .btn {
+      padding: inherit;
+    }
+
+    .btn {
+      width: inherit;
+      height: inherit;
+      background: #1a100f;
+      border: 1px dotted black;
+      font-size: 17px;
+      color: #fff;
+      padding: inherit;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    .next.available {
+      color: white !important;
+    }
+
+    .header-search-container form {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .header-search-container form input {
+      height: fit-content;
+      margin: 0;
+      border-radius: 0 !important;
+    }
+  </style>
 
 </head>
 
@@ -41,7 +112,7 @@
   <!--
     - MODAL
   -->
-
+  
   <div class="modal" data-modal>
 
     <div class="modal-close-overlay" data-modal-overlay></div>
@@ -187,8 +258,12 @@
 
         <div class="header-search-container">
 
-          <input type="search" name="search" class="search-field" placeholder="Enter your car name...">
-          <input data-start="10/11/2022" data-end="15/11/2022" type="text" name="dates" class="d-block my-4 mx-auto">
+          <form action="#" method="POST">
+            <input type="search" name="search" class="search-field d-block my-4 mx-auto" placeholder="Car Name...">
+            <input data-start="10/11/2021" data-end="15/11/2022" type="text" name="dates"
+              class="search-field d-block my-4 mx-auto">
+            <input type="search" name="search" class="search-field d-block my-4 mx-auto" placeholder="City Name...">
+          </form>
 
           <button class="search-btn">
             <ion-icon name="search-outline"></ion-icon>
