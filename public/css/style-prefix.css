@@ -2596,6 +2596,19 @@ footer {
 }
 
 /**
+ * responsive smaller than 768px screen
+ */
+
+@media (max-width: 768px) {
+  #login-container {
+    display: block !important;
+  }
+  #login-container #login-container-1 div {
+    padding-bottom: 1em !important;
+  }
+}
+
+/**
  * responsive larger than 768px screen
  */
 
@@ -2603,6 +2616,10 @@ footer {
   /**
    * #CUSTOM PROPERTY
    */
+
+  #login-container {
+    display: block;
+  }
 
   :root {
     /**
@@ -2887,6 +2904,36 @@ footer {
     font-size: 35px;
     color: var(--onyx);
     padding: 5px;
+  }
+
+  .count-b ion-icon {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    background: var(--bittersweet);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: var(--weight-700);
+    line-height: 1;
+    padding: 2px 2px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+  .header-user-actions .count-b {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    background: var(--bittersweet);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: var(--weight-700);
+    line-height: 1;
+    padding: 2px 2px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+  }
+  .header-user-actions .count-b ion-icon {
+    color: var(--white);
   }
 
   .header-user-actions .count {
