@@ -13,6 +13,14 @@
   <link rel="shortcut icon" href="/images/logo/MB.png" type="image/x-icon">
 
   <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!--
     - custom css link
   -->
   <link rel="stylesheet" href="css/style-prefix.css">
@@ -20,13 +28,8 @@
   <link rel="stylesheet" href="css/checkout-steps.css">
   <link rel="stylesheet" href="css/paypal.css" />
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 
 </head>
 
@@ -185,6 +188,7 @@
         <div class="header-search-container">
 
           <input type="search" name="search" class="search-field" placeholder="Enter your car name...">
+          <input data-start="10/11/2022" data-end="15/11/2022" type="text" name="dates" class="d-block my-4 mx-auto">
 
           <button class="search-btn">
             <ion-icon name="search-outline"></ion-icon>
@@ -306,7 +310,7 @@
 
         <li class="menu-category">
           <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Art</p>
+            <p class="menu-title">Car</p>
 
             <div>
               <ion-icon name="add-outline" class="add-icon"></ion-icon>
