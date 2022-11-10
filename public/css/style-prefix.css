@@ -940,7 +940,7 @@ main {
 }
 
 .banner-content {
-  background: hsla(0, 0%, 100%, 0.8);
+  background: hsl(12deg 15% 13% / 51%);
   position: absolute;
   bottom: 25px;
   left: 25px;
