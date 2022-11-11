@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { upload } = require('../services/multer')
+let mongoose = require('mongoose');
 
 const Users = require('../models/Users.models');
 const Reserves = require('../models/Reserves.models');
@@ -120,6 +121,26 @@ router.get('/car/car', async (req, res) => {
   } catch (error) {
     res.render('car', {
       user: req.user,
+    });
+  }
+});
+// User Car
+router.post('/search', async (req, res) => {
+  let { car_name, dates, city_name } = req.body;
+  let date_sample = "01/02/2022 - 24/03/2022";
+  let start_date = dates.slice(0, 10);
+  let end_date = dates.slice(13, 23);
+  // res.send({ car_name, start_date, end_date, city_name });
+  try {
+    // const car = await Cars.findOne({ name: req.params.car });
+    res.render('search', {
+      user: req.user,
+      car_name, start_date, end_date, city_name,
+    });
+  } catch (error) {
+    res.render('search', {
+      user: req.user,
+      car_name, start_date, end_date, city_name,
     });
   }
 });

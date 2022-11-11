@@ -30,6 +30,7 @@
 
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
   <style>
     .daterangepicker .calendar-table th,
     .daterangepicker .calendar-table td {
@@ -112,7 +113,7 @@
   <!--
     - MODAL
   -->
-  
+
   <div class="modal" data-modal>
 
     <div class="modal-close-overlay" data-modal-overlay></div>
@@ -258,16 +259,30 @@
 
         <div class="header-search-container">
 
-          <form action="#" method="POST">
-            <input type="search" name="search" class="search-field d-block my-4 mx-auto" placeholder="Car Name...">
-            <input data-start="10/11/2021" data-end="15/11/2022" type="text" name="dates"
-              class="search-field d-block my-4 mx-auto">
-            <input type="search" name="search" class="search-field d-block my-4 mx-auto" placeholder="City Name...">
-          </form>
+          <form action="/search" method="POST" id="search_form">
+            <% if(typeof car_name!=='undefined' ) { %>
+              <input type="text" name="car_name" class="search-field d-block my-4 mx-auto" placeholder="Car Name..."
+                value="<%= car_name ? car_name : ''%>">
 
-          <button class="search-btn">
-            <ion-icon name="search-outline"></ion-icon>
-          </button>
+              <input data-start="<%= start_date ? start_date : ''%>" data-end="<%= end_date ? end_date : ''%>"
+                type="search" name="dates" class="search-field d-block my-4 mx-auto">
+
+              <input type="text" name="city_name" class="search-field d-block my-4 mx-auto" placeholder="City Name..."
+                value="<%= city_name ? city_name : ''%>">
+              <% } else { %>
+                <input type="text" name="car_name" class="search-field d-block my-4 mx-auto" placeholder="Car Name...">
+
+                <input data-start="10/11/2021" data-end="15/11/2022" type="search" name="dates"
+                  class="search-field d-block my-4 mx-auto">
+
+                <input type="text" name="city_name" class="search-field d-block my-4 mx-auto"
+                  placeholder="City Name...">
+                <% } %>
+
+                  <button class="search-btn" type="submit">
+                    <ion-icon name="search-outline"></ion-icon>
+                  </button>
+          </form>
 
         </div>
 

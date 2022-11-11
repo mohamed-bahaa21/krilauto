@@ -8,8 +8,8 @@ input.daterangepicker({
     autoApply: false,
     startDate: input.data('start'),
     endDate: input.data('end'),
-    minDate: input.data('start'),
-    maxDate: input.data('end'),
+    minDate: input.data('01/11/2022'),
+    maxDate: input.data('01/01/2023'),
     locale: {
         format: "DD/MM/YYYY",
         separator: " - ",
