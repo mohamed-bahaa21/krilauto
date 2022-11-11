@@ -97,7 +97,7 @@ router.get('/news', async (req, res) => {
 // User Agency
 router.get('/agency/agency', async (req, res) => {
   try {
-    const agency = await Agencies.findOne({ name: req.params.agency }).populate('books.book');
+    const agency = await Agencies.findOne({ name: req.params.agency }).populate('cars.carId');
     res.render('agency', {
       user: req.user,
       agency: agency,
@@ -112,7 +112,7 @@ router.get('/agency/agency', async (req, res) => {
 // User Car
 router.get('/car/car', async (req, res) => {
   try {
-    const car = await Cars.findOne({ name: req.params.car }).populate('books.book');
+    const car = await Cars.findOne({ name: req.params.car });
     res.render('car', {
       user: req.user,
       car: car,

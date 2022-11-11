@@ -15,7 +15,7 @@ code {
     monospace;
 }
 
-.book {
+.car {
   /* box-shadow: -1px 4px 6px 4px #000000cf, 3px 4px 0px 1px #ffffff; */
   box-shadow: -2px 3px 6px 1px #000000cf, 2px 3px 0px 1px #ffffff;
 }
@@ -54,11 +54,11 @@ button {
   padding: 0.25em 0.5em;
 }
 
-.book {
+.car {
   text-align: center;
 }
 
-.book-price {
+.car-price {
   font-weight: bold;
 }
 
