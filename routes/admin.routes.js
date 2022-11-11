@@ -41,18 +41,18 @@ router.get('/signout', (req, res) => {
 
 });
 
-// Admin Books
+// Admin Dashboard
 router.get('/dashboard', (req, res) => {
   res.render('admin/dashboard', {
     user: req.user,
   });
 });
 
-// Admin Books
-router.get('/admin/books', ensureAuthenticated, async (req, res) => {
+// Admin Users
+router.get('/admin/users', ensureAuthenticated, async (req, res) => {
   const users = await Users.find({});
 
-  res.render('admin/books', {
+  res.render('admin/users', {
     user: req.user,
     users: users,
   });

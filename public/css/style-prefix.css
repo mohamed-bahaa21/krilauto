@@ -607,6 +607,7 @@ main {
 
 .header-search-container {
   position: relative;
+  box-shadow: 0 10px 49px -19px #333;
 }
 
 .header-search-container .search-field {

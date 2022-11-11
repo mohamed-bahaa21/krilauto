@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectID = mongoose.Schema.Types.ObjectId;
 
 const ReserveSchema = new mongoose.Schema({
-  owner: {
+  ownerId: {
     type: ObjectID,
     required: true,
     ref: 'User'

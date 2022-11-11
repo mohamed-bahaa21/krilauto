@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectID = mongoose.Schema.Types.ObjectId;
 
 const CarSchema = new mongoose.Schema({
-    owner: {
+    ownerId: {
         type: ObjectID,
         required: true,
         ref: 'Agency'

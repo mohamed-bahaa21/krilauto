@@ -14,7 +14,8 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   reserves: [{
     reserveId: {
@@ -23,6 +24,10 @@ const UserSchema = new mongoose.Schema({
       required: true
     },
   }],
+  cart: {
+    type: ObjectID,
+    ref: 'Reserve'
+  }
 });
 
 
