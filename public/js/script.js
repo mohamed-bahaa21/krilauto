@@ -9,8 +9,8 @@ const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
 const modalCloseFunc = function () { modal.classList.add('closed') }
 
 // modal eventListener
-modalCloseOverlay.addEventListener('click', modalCloseFunc);
-modalCloseBtn.addEventListener('click', modalCloseFunc);
+// modalCloseOverlay.addEventListener('click', modalCloseFunc);
+// modalCloseBtn.addEventListener('click', modalCloseFunc);
 
 
 
@@ -21,9 +21,9 @@ const notificationToast = document.querySelector('[data-toast]');
 const toastCloseBtn = document.querySelector('[data-toast-close]');
 
 // notification toast eventListener
-toastCloseBtn.addEventListener('click', function () {
-  notificationToast.classList.add('closed');
-});
+// toastCloseBtn.addEventListener('click', function () {
+//   notificationToast.classList.add('closed');
+// });
 
 
 

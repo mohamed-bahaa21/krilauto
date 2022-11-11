@@ -107,36 +107,11 @@
 
 <body>
 
-
-  <div class="overlay" data-overlay></div>
-
-  <!--
-    - NOTIFICATION TOAST
-  -->
-
-  <div class="notification-toast" data-toast>
-    <button class="toast-close-btn" data-toast-close>
-      <ion-icon name="close-outline"></ion-icon>
-    </button>
-    <div class="toast-banner">
-      <img src="/images/cars/car.jpeg" alt="The Best Car" width="80" height="70">
-    </div>
-    <div class="toast-detail">
-      <p class="toast-message">
-        Someone is new just rented
-      </p>
-      <p class="toast-title">
-        The Best Car
-      </p>
-      <p class="toast-meta">
-        <time datetime="PT2M">2 Minutes</time> ago
-      </p>
-    </div>
-  </div>
-
   <!--
     - HEADER
   -->
+
+  <div class="overlay" data-overlay></div>
 
   <header>
 
@@ -207,18 +182,13 @@
         <div class="header-search-container">
 
           <form action="/search" method="POST" id="search_form">
-            <% if(typeof car_name!=='undefined' ) { %>
-              <input type="text" name="car_name" class="search-field d-block my-4 mx-auto" placeholder="Car Name..."
-                value="<%= car_name ? car_name : ''%>">
-
+            <% if(typeof city_name!=='undefined' ) { %>
               <input data-start="<%= start_date ? start_date : ''%>" data-end="<%= end_date ? end_date : ''%>"
                 type="search" name="dates" class="search-field d-block my-4 mx-auto">
 
               <input type="text" name="city_name" class="search-field d-block my-4 mx-auto" placeholder="City Name..."
                 value="<%= city_name ? city_name : ''%>">
               <% } else { %>
-                <input type="text" name="car_name" class="search-field d-block my-4 mx-auto" placeholder="Car Name...">
-
                 <input data-start="10/11/2021" data-end="15/11/2022" type="search" name="dates"
                   class="search-field d-block my-4 mx-auto">
 
@@ -239,10 +209,11 @@
             <ion-icon name="person-circle-outline"></ion-icon>
           </a>
 
-          <a href="#" class="action-btn">
+          <!-- <a href="#" class="action-btn">
             <ion-icon name="notifications-circle-outline"></ion-icon>
             <span class="count">5</span>
-          </a>
+          </a> -->
+
           <a href="/reserve" class="action-btn">
             <ion-icon name="car-sport-outline"></ion-icon>
             <span class="count-b">
@@ -256,58 +227,24 @@
 
     </div>
 
-    <nav class="desktop-navigation-menu">
-
-      <div class="container">
-
-        <ul class="desktop-menu-category-list">
-
-          <li class="menu-category">
-            <a href="/" class="menu-title">Home</a>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Hot Offers</a>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Special</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">New Arrivals</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Trending</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Top Rated</a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="menu-category">
-            <a href="/news" class="menu-title">News</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </nav>
-
     <div class="mobile-bottom-navigation">
 
       <button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="menu-outline"></ion-icon>
       </button>
 
-      <button class="action-btn">
-        <ion-icon name="car-sport-outline" style="display: inline-block"></ion-icon>
 
+      <a href="/profile" class="action-btn">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </a>
+
+
+      <a href="/" class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </a>
+
+      <a href="/reserve" class="action-btn">
+        <ion-icon name="car-sport-outline" style="display: inline-block"></ion-icon>
         <span class="count-b">
           <ion-icon name="alert-outline" style=" position: absolute;
           top: 5px;
@@ -321,11 +258,7 @@
           -webkit-border-radius: 20px;
           border-radius: 20px;"></ion-icon>
         </span>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
+      </a>
 
       <button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="grid-outline"></ion-icon>
@@ -336,58 +269,14 @@
     <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
 
       <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
+        <!-- <h2 class="menu-title">Menu</h2> -->
 
         <button class="menu-close-btn" data-mobile-menu-close-btn>
           <ion-icon name="close-outline"></ion-icon>
         </button>
       </div>
 
-      <ul class="mobile-menu-category-list">
 
-        <li class="menu-category">
-          <a href="/" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Car</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="/car" class="submenu-title">car</a>
-            </li>
-            <li class="submenu-category">
-              <a href="/car" class="submenu-title">car</a>
-            </li>
-            <li class="submenu-category">
-              <a href="/car" class="submenu-title">car</a>
-            </li>
-            <li class="submenu-category">
-              <a href="/car" class="submenu-title">car</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <a href="/" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-          <a href="/" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-          <a href="/" class="menu-title">Home</a>
-        </li>
-
-      </ul>
 
       <div class="menu-bottom">
 
