@@ -87,84 +87,85 @@
         }
     </style>
 
-    <div id="login-container">
-        <div id="login-container-1">
-            <div style="
+    <%- include('./partials/messages.ejs') %>
+        <div id="login-container">
+            <div id="login-container-1">
+                <div style="
             padding: 6em 3em;
             margin: auto;">
-                <div style="margin: 20px 0">
-                    <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
-                        class="shadow col-md-8 m-auto">
-                        <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign In</h3>
-                        <br>
-                        <form action="/users/login" method="POST">
-                            <div class="form-group">
-                                <label for="email">Email Address :</label>
-                                <input type="email" id="email" name="email" class="form-control"
-                                    placeholder="Enter Your Email Address" />
+                    <div style="margin: 20px 0">
+                        <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
+                            class="shadow col-md-8 m-auto">
+                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign In</h3>
+                            <br>
+                            <form action="/signin" method="POST">
+                                <div class="form-group">
+                                    <label for="email">Email Address :</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="Enter Your Email Address" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        placeholder="Enter Your Password" />
+                                </div>
+                                <div style="text-align: center;">
+                                    <button type="submit" class="main-btn">
+                                        <b>Sign in</b>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control"
-                                    placeholder="Enter Your Password" />
-                            </div>
-                            <div style="text-align: center;">
-                                <button type="submit" class="main-btn">
-                                    <b>Sign in</b>
-                                </button>
-
-                                <button type="button" class="login-with-btn login-with-google-btn">
-                                    Sign in with Google
-                                </button>
-                                <button type="button" class="login-with-btn login-with-facebook-btn">
-                                    Sign in with Facebook
-                                </button>
-                                <button type="button" class="login-with-btn login-with-twitter-btn">
-                                    Sign in with Twitter
-                                </button>
-                            </div>
-                        </form>
+            <div id="login-container-1">
+                <div style="
+            padding: 6em 3em;
+            margin: auto;">
+                    <div style="margin: 20px 0">
+                        <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
+                            class="shadow col-md-8 m-auto">
+                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign Up</h3>
+                            <br>
+                            <form action="/signup" method="POST">
+                                <div class="form-group">
+                                    <label for="name">User Name :</label>
+                                    <input type="name" id="name" name="name" class="form-control"
+                                        placeholder="Enter Your Name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address :</label>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                        placeholder="Enter Your Email Address" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Account Type :</label>
+                                    <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
+                                        <option value="User">User</option>
+                                        <option value="Agency">Agency</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        placeholder="Enter Your Password" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Password</label>
+                                    <input type="password" id="confirm_password" name="confirm_password"
+                                        class="form-control" placeholder="Confirm Your Password" />
+                                </div>
+                                <div style="text-align: center;">
+                                    <button type="submit" class="main-btn">
+                                        <b>Sign up</b>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div id="login-container-1">
-            <div style="
-            padding: 6em 3em;
-            margin: auto;">
-                <div style="margin: 20px 0">
-                    <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
-                        class="shadow col-md-8 m-auto">
-                        <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign Up</h3>
-                        <br>
-                        <form action="/users/login" method="POST">
-                            <div class="form-group">
-                                <label for="email">Email Address :</label>
-                                <input type="email" id="email" name="email" class="form-control"
-                                    placeholder="Enter Your Email Address" />
-
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control"
-                                    placeholder="Enter Your Password" />
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm-password">Password</label>
-                                <input type="password" id="confirm-password" name="confirm-password"
-                                    class="form-control" placeholder="Confirm Your Password" />
-                            </div>
-                            <div style="text-align: center;">
-                                <button type="submit" class="main-btn">
-                                    <b>Sign up</b>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <%- include('./partials/tail.ejs') %>
+        <%- include('./partials/tail.ejs') %>

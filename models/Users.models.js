@@ -17,16 +17,21 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false
   },
+  verified: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
   reserves: [{
     reserveId: {
       type: ObjectID,
       ref: 'Reserve',
-      required: true
+      required: false
     },
   }],
   cart: {
     type: ObjectID,
-    ref: 'Reserve'
+    ref: 'Reserve',
   }
 });
 

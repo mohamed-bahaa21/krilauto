@@ -1,7 +1,7 @@
 <%- include('./partials/head.ejs') %>
 
     <!-- multistep form -->
-    <form id="msform">
+    <form id="msform" action="/reserve" method="POST">
         <!-- progressbar -->
         <ul id="progressbar">
             <li class="active">Reservation</li>
@@ -106,12 +106,14 @@
                             alt="car" class="car-img default" width="100%" style="scale: 0.75;" />
                     </div>
                     <br><br>
-                    <div class="" style="align-items: center; text-align: left;">
+                    <div id="paypal-button-container"></div>
+                    <%- include('./partials/paypal.ejs') %>
+                    <!-- <div id="paypal-button-container" class="" style="align-items: center; text-align: left;">
                         <span style="display: block;font-size: 0.90em;font-weight: 700;">PayPal</span>
                         <span style="font-size: 0.75em;
                 color: var(--spanish-gray);
                 font-weight: 400; width: max-content;">Without comission</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -126,6 +128,7 @@
 
             <input type="submit" name="submit" style="margin: 0 auto; display: inline-block"
                 class="submit action-button" value="Submit" />
+
             <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
                 class="previous action-button" value="Previous" />
 

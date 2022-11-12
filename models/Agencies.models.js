@@ -26,7 +26,7 @@ const AgencySchema = new mongoose.Schema({
     carId: {
       type: ObjectID,
       ref: 'Car',
-      required: true
+      required: false
     },
   }],
 });

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { upload } = require('../services/multer')
 let mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 const Users = require('../models/Users.models');
 const Reserves = require('../models/Reserves.models');
@@ -14,7 +16,7 @@ const {
 
 
 // ===================================
-router.get('/', forwardAuthenticated, (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index'));
 
 // User Signout
 router.get('/signout', (req, res) => {
@@ -27,31 +29,24 @@ router.get('/signout', (req, res) => {
 });
 
 // User Profile
-router.get('/profile', ensureAuthenticated, async (req, res) => {
-  if (req.session.userData) {
-    res.render('profile', {
-      user: req.user,
-      userData: req.session.userData
+router.get('/profile', ensureAuthenticated, (req, res) => {
+
+  try {
+    Reserves.find({ '_id': { $in: req.users.reserves } }).then(reserves => {
+      res.render('profile', {
+        user: req.user,
+        reserves: reserves
+      });
     });
 
-  } else {
-    try {
-      // let reserves = await Reserves.find({ '_id': { $in: req.user.reserves } });
-      Users.find({ _id: req.user._id }).populate('reserves.reserveId').then(user_data => {
-        // note that data is an array of objects, not a single object!
-        res.render('profile', {
-          user: req.user,
-          userData: user_data
-        });
-      });
-    } catch (error) {
-      req.flash(
-        'success_msg',
-        'Error happened'
-      );
-      res.redirect('/');
-    }
+  } catch (error) {
+    req.flash(
+      'success_msg',
+      'Error happened'
+    );
+    res.redirect('/');
   }
+
 });
 
 // User Profile Reserve
@@ -72,20 +67,63 @@ router.get('/profile/:reserve', ensureAuthenticated, async (req, res) => {
 });
 
 // User Reserve
+const { PAYPAL_CLIENT_ID, PAYPAL_APP_SECRET } = process.env;
+const { createOrder, capturePayment } = require('../services/paypal')
+
+// create a new order
+router.post("/create_reserve", async (req, res) => {
+  let { carId,
+    carName,
+    startDate,
+    endDate,
+    price } = req.body;
+
+
+  let new_reserve = new Reserves({
+    ownerId: req.user._id,
+    carId: carId,
+    ownerName: req.user.name,
+    carName: carName,
+    startDate: startDate,
+    endDate: endDate,
+    price: price,
+    fullFilled: false,
+  })
+  req.user.cart = new_reserve._id;
+  new_reserve.save().then(() => {
+    req.flash('success_msg', "Reserve was created Successfully");
+    res.redirect('/reserve');
+  })
+});
+
 router.get('/reserve', async (req, res) => {
   try {
-    const reserve = await Reserves.findOne({ _id: req.session.userData.cart });
-    if (reserve) {
+    Reserves.findOne({ _id: req.user.cart }).then(reserve => {
       res.render('reserve', {
         user: req.user,
         reserve: reserve,
       });
-    }
+    });
+
   } catch (error) {
     res.render('reserve', {
       user: req.user,
     });
   }
+});
+
+// create a new order
+router.post("/reserve", async (req, res) => {
+  const order = await createOrder();
+  res.json(order);
+});
+
+// capture payment & store order information or fullfill order
+router.post("/reserve/:reserveID/capture", async (req, res) => {
+  const { reserveID } = req.params;
+  const captureData = await capturePayment(reserveID);
+  // TODO: store payment information such as the transaction ID
+  res.json(captureData);
 });
 
 // User News
@@ -175,7 +213,7 @@ router.post('/signup', (req, res) => {
   } = req.body;
   let errors = [];
 
-  if (!name || !workAs || !email || !password || !confirm_password) {
+  if (!name || !email || !password || !confirm_password) {
     errors.push({
       msg: 'Please enter all fields'
     });
@@ -194,7 +232,7 @@ router.post('/signup', (req, res) => {
   }
 
   if (errors.length > 0) {
-    res.render('signup', {
+    res.render('auth', {
       errors,
       name,
       email,
@@ -202,63 +240,103 @@ router.post('/signup', (req, res) => {
       confirm_password
     });
   } else {
-    User.findOne({
-      email: email
-    }).then(user => {
-      if (user) {
-        errors.push({
-          msg: 'Email already exists'
-        });
-        res.render('signup', {
-          errors,
-          name,
-          email,
-          password,
-          confirm_password
-        });
-      } else {
-        const newUser = new User({
-          name,
-          email,
-          password,
-        });
 
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            newUser.password = hash;
-            newUser
-              .save()
-              .then(user => {
-                req.flash(
-                  'success_msg',
-                  'You are now signuped and can log in'
-                );
-                res.redirect('/auth');
-              })
-              .catch(err => console.log(err));
+    console.log(req.body.user_type);
+    if (req.body.user_type == 'User') {
+      Users.findOne({
+        email: email
+      }).then(user => {
+        if (user) {
+          errors.push({
+            msg: 'Email already exists'
           });
-        });
-      }
-    });
+          res.render('auth', {
+            errors,
+            name,
+            email,
+            password,
+            confirm_password
+          });
+          console.log('here');
+        } else {
+          const newUser = new Users({
+            name,
+            email,
+            password,
+          });
+          console.log('here');
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser
+                .save()
+                .then(user => {
+                  req.flash(
+                    'success_msg',
+                    'You are now signuped and can sign in'
+                  );
+                  console.log('here');
+                  res.redirect('/auth');
+                })
+                .catch(err => console.log(err));
+            });
+          });
+        }
+      });
+    }
+
+    if (req.body.user_type == 'Agency') {
+      Agencies.findOne({
+        email: email
+      }).then(user => {
+        if (user) {
+          errors.push({
+            msg: 'Email already exists'
+          });
+          res.render('auth', {
+            errors,
+            name,
+            email,
+            password,
+            confirm_password
+          });
+        } else {
+          const newUser = new Agencies({
+            name,
+            email,
+            password,
+          });
+
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUsers.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUsers.password = hash;
+              newUser
+                .save()
+                .then(user => {
+                  req.flash(
+                    'success_msg',
+                    'You are now signuped and can log in'
+                  );
+                  res.redirect('/auth');
+                })
+                .catch(err => console.log(err));
+            });
+          });
+        }
+      });
+    }
   }
 });
 
 // User Signin
 router.post('/signin', (req, res, next) => {
-  User.findOne({
-    email: req.body.email
-  }, (err, doc) => {
-    if (err) {
-      console.log("Something wrong when updating data!");
-    } else {
-      passport.authenticate('local', {
-        successRedirect: '/profile',
-        failureRedirect: '/auth',
-        failureFlash: true
-      })(req, res, next);
-    }
-  });
+  passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/auth',
+    failureFlash: true
+  })(req, res, next);
 });
 
 module.exports = router;

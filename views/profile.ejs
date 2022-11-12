@@ -1,1 +1,35 @@
-<h1>Profile</h1>
+<%- include('./partials/head.ejs') %>
+
+
+    <%- include('./partials/messages.ejs') %>
+
+        <table style="margin: 0 auto; scale: 0.90;">
+            <thead>
+                <tr>
+                    <th>Car Image</th>
+                    <th>Car Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% reserves.forEach(reserve=> { %>
+                    <tr>
+                        <td>
+                            <a href="#" class="showcase-img-box">
+                                <img src="/images/cars/car.jpeg" alt="car" class="showcase-img" width="70">
+                            </a>
+                        </td>
+                        <td><a href="#"><%= reserve.carName %></a></td>
+                        <td><%= reserve.startDate %></td>
+                        <td><%= reserve.EndDate %></td>
+                        <td><%= reserve.price %></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+
+
+        <%- include('./partials/tail.ejs') %>
