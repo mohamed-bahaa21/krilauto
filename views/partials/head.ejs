@@ -205,21 +205,27 @@
 
         <div class="header-user-actions">
 
-          <a href="/profile" class="action-btn">
-            <ion-icon name="person-circle-outline"></ion-icon>
-          </a>
+          <% if(user !==undefined) { %>
+            <a href="/signout" class="action-btn">
+              <ion-icon style="display: inline-block;" name="log-out-outline"></ion-icon>
+            </a>
+            <% } %>
 
-          <!-- <a href="#" class="action-btn">
+              <a href="/profile" class="action-btn">
+                <ion-icon name="person-circle-outline"></ion-icon>
+              </a>
+
+              <!-- <a href="#" class="action-btn">
             <ion-icon name="notifications-circle-outline"></ion-icon>
             <span class="count">5</span>
           </a> -->
 
-          <a href="/reserve" class="action-btn">
-            <ion-icon name="car-sport-outline"></ion-icon>
-            <span class="count-b">
-              <ion-icon name="alert-outline"></ion-icon>
-            </span>
-          </a>
+              <a href="/reserve" class="action-btn">
+                <ion-icon name="car-sport-outline"></ion-icon>
+                <span class="count-b">
+                  <ion-icon name="alert-outline"></ion-icon>
+                </span>
+              </a>
 
         </div>
 
@@ -232,7 +238,6 @@
       <button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="menu-outline"></ion-icon>
       </button>
-
 
       <a href="/profile" class="action-btn">
         <ion-icon name="person-circle-outline"></ion-icon>
@@ -342,6 +347,15 @@
           </li>
 
         </ul>
+
+        <% if(user !==undefined) { %>
+          <li class="menu-category">
+            <a href="/signout" class="action-btn" style="margin: 20px 0;">
+              <ion-icon style="display: inline-block;" name="log-out-outline"></ion-icon>
+              <span> Signout</span>
+            </a>
+          </li>
+          <% } %>
 
       </div>
 

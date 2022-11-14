@@ -16,7 +16,7 @@ const {
 
 
 // ===================================
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('index', { user: req.user }));
 
 // User Signout
 router.get('/signout', (req, res) => {
@@ -32,7 +32,7 @@ router.get('/signout', (req, res) => {
 router.get('/profile', ensureAuthenticated, (req, res) => {
 
   try {
-    Reserves.find({ '_id': { $in: req.users.reserves } }).then(reserves => {
+    Reserves.find({ '_id': { $in: req.user.reserves } }).then(reserves => {
       res.render('profile', {
         user: req.user,
         reserves: reserves
@@ -202,7 +202,7 @@ router.post('/upload', (req, res) => {
 });
 
 // User Auth
-router.get('/auth', forwardAuthenticated, (req, res) => res.render('auth'));
+router.get('/auth', forwardAuthenticated, (req, res) => res.render('auth', { user: req.user, }));
 // User Signup
 router.post('/signup', (req, res) => {
   const {
@@ -233,6 +233,7 @@ router.post('/signup', (req, res) => {
 
   if (errors.length > 0) {
     res.render('auth', {
+      user: req.user,
       errors,
       name,
       email,
@@ -251,6 +252,7 @@ router.post('/signup', (req, res) => {
             msg: 'Email already exists'
           });
           res.render('auth', {
+            user: req.user,
             errors,
             name,
             email,
@@ -295,6 +297,7 @@ router.post('/signup', (req, res) => {
             msg: 'Email already exists'
           });
           res.render('auth', {
+            user: req.user,
             errors,
             name,
             email,
