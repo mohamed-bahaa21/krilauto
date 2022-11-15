@@ -99,7 +99,7 @@ router.post("/create_reserve", async (req, res) => {
   })
 });
 
-router.get('/reserve', async (req, res) => {
+router.get('/reserve', ensureAuthenticated, async (req, res) => {
   try {
     Reserves.findOne({ _id: req.user.cart }).then(reserve => {
       res.render('reserve', {
