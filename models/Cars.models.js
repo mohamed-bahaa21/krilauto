@@ -23,19 +23,19 @@ const CarSchema = new mongoose.Schema({
             required: true
         },
     }],
-    model: {
-        type: String,
-        required: true,
-        trim: true
-    },
     imgs: [{
         type: String,
-        required: true,
+        required: false,
         trim: true
     }],
     city: {
         type: String,
         required: true
+    },
+    model: {
+        type: String,
+        required: true,
+        trim: true
     },
     brand: {
         type: String,
@@ -47,11 +47,13 @@ const CarSchema = new mongoose.Schema({
     },
     isFree: {
         type: Boolean,
-        required: true
+        required: true,
+        default: true
     },
     freeFrom: {
-        type: Date,
-        required: true
+        type: String,
+        required: true,
+        default: "Now"
     }
 })
 

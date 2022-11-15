@@ -17,17 +17,20 @@ const AgencySchema = new mongoose.Schema({
     required: true,
     select: false
   },
+  account_type: {
+    type: String,
+    required: true,
+    default: "Agency",
+  },
   verified: {
     type: Boolean,
     required: true,
     default: false
   },
   cars: [{
-    carId: {
-      type: ObjectID,
-      ref: 'Car',
-      required: false
-    },
+    type: ObjectID,
+    ref: 'Car',
+    required: false
   }],
 });
 

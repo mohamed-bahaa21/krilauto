@@ -1,0 +1,93 @@
+<div class="overlay" agency-add-car-overlay></div>
+
+<!--
+    - MODAL
+  -->
+
+
+<style>
+    input[type="checkbox"] {
+        display: inline-block;
+        width: fit-content;
+    }
+</style>
+
+<style>
+    button:disabled {
+        opacity: 0.25;
+    }
+</style>
+
+<% if(carsLength > 5 || !verified) { %> 
+    <button id="agency-add-car-btn" class="btn-newsletter" disabled="true">Add Car</button>
+<% } else { %> 
+    <button id="agency-add-car-btn" class="btn-newsletter">Add Car</button>
+<% } %>
+
+<div class="modal closed" agency-add-car-modal>
+
+    <div class="modal-close-overlay" agency-add-car-modal-overlay></div>
+
+    <div class="modal-content">
+
+        <button class="modal-close-btn" agency-add-car-modal-close>
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <!-- <div class="newsletter-img">
+            <img src="/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+        </div> -->
+
+        <div class="newsletter" style="width: 47vw !important;">
+
+            <form action="/agency-add-car" method="POST">
+
+                <div class="newsletter-header">
+
+                    <h3 class="newsletter-title">Add a New Car.</h3>
+
+                </div>
+
+                <input type="text" name="ownerId" value="<%=user._id%>" class="email-field" hidden readonly>
+                <input type="text" name="name" class="email-field" placeholder="Name" required>
+                <input type="number" name="price" class="email-field" placeholder="Price" required>
+                <input type="text" name="city" class="email-field" placeholder="City" required>
+                <input type="text" name="brand" class="email-field" placeholder="Brand" required>
+                <input type="text" name="model" class="email-field" placeholder="Model" required>
+                <input type="text" name="description" class="email-field" placeholder="Description" required>
+                <!-- <input type="checkbox" id="isFree" name="isFree" class="email-field" placeholder="is Free" required> Is
+                Free -->
+                <input type="date" id="freeFrom" name="freeFrom" class="email-field" placeholder="Free From">
+
+
+                <button type="submit" class="btn-newsletter">Add</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    // modal variables
+    const addCarModal = document.querySelector('[agency-add-car-modal]');
+    const addCarModalCloseBtn = document.querySelector('[agency-add-car-modal-close]');
+    const addCarModalCloseOverlay = document.querySelector('[agency-add-car-modal-overlay]');
+
+    const addCarBtn = document.querySelector('#agency-add-car-btn');
+
+    addCarBtn.addEventListener('click', () => {
+        addCarModal.classList.remove('closed');
+        console.log('here');
+    })
+
+    // modal function
+    const addCarModalCloseFunc = function () { addCarModal.classList.add('closed') }
+
+    // modal eventListener
+    addCarModalCloseOverlay.addEventListener('click', addCarModalCloseFunc);
+    addCarModalCloseBtn.addEventListener('click', addCarModalCloseFunc);
+</script>

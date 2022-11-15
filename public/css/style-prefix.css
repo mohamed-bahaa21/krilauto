@@ -297,8 +297,8 @@ body::-webkit-scrollbar-thumb:hover {
   visibility: hidden;
   pointer-events: none;
   z-index: 10;
-  -webkit-animation: popup 1s ease-in-out 5s forwards;
-  animation: popup 1s ease-in-out 5s forwards;
+  -webkit-animation: popup 0.2s ease-in-out 0.2s forwards;
+  animation: popup 0.2s ease-in-out 0.2s forwards;
 }
 
 @-webkit-keyframes popup {

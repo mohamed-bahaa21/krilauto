@@ -17,6 +17,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false
   },
+  account_type: {
+    type: String,
+    required: true,
+    default: "User",
+  },
   verified: {
     type: Boolean,
     required: true,

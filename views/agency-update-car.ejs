@@ -1,0 +1,38 @@
+<%- include('./partials/head.ejs') %>
+
+
+    <%- include('./partials/messages.ejs') %>
+
+        <div class="container">
+            <a style="text-decoration: underline;" href="/profile/cars">Go Back</a>
+
+            <form action="/profile/cars/<%=car._id%>">
+                <div class="newsletter-header">
+                    <h3 class="newsletter-title">Update Your Car.</h3>
+                </div>
+
+                <input type="text" name="_id" value="<%= car._id %>" class="email-field" hidden readonly>
+                <input type="text" name="name" value="<%= car.name %>" class="email-field" placeholder="Name" required>
+                <input type="number" name="price" value="<%= car.price %>" class="email-field" placeholder="Price"
+                    required>
+                <input type="text" name="city" value="<%= car.city %>" class="email-field" placeholder="City" required>
+                <input type="text" name="brand" value="<%= car.brand %>" class="email-field" placeholder="Brand"
+                    required>
+                <input type="text" name="model" value="<%= car.model %>" class="email-field" placeholder="Model"
+                    required>
+                <input type="text" name="description" value="<%= car.description %>" class="email-field"
+                    placeholder="Description" required>
+                <!-- <input type="checkbox" name="isFree" value="" class="email-field" placeholder="is Free" required> Is
+                    Free -->
+                <input type="date" name="freeFrom" value="<%= car.freeFrom %>" class="email-field"
+                    placeholder="Free From" required>
+
+
+                <button type="submit" class="btn-newsletter">Update</button>
+
+            </form>
+        </div>
+
+
+
+        <%- include('./partials/tail.ejs') %>

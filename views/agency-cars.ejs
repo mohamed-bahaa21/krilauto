@@ -1,0 +1,62 @@
+<%- include('./partials/head.ejs') %>
+
+<style>
+    .btn-newsletter {
+        margin: 15px auto;
+    }
+</style>
+
+    <%- include('./partials/messages.ejs') %>
+        <%- include('./partials/agency-add-car.ejs', {carsLength: cars.length, verified: user.verified}) %>
+            <%- include('./partials/agency-update-car.ejs') %>
+
+                <table style="margin: 0 auto; scale: 0.90;">
+                    <thead>
+                        <tr>
+                            <th>Car Image</th>
+                            <th>Car Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cars.forEach((car, index)=> { %>
+                            <tr>
+                                <td>
+                                    <a href="#" class="showcase-img-box">
+                                        <img src="/images/cars/car.jpeg" alt="car" class="showcase-img" width="70">
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= car.name %>
+                                </td>
+                                <td>
+                                    <%= car.price %>
+                                </td>
+                                <td>
+                                    <%= car.city %>
+                                </td>
+                                <td>
+                                    <%= car.brand %>
+                                </td>
+                                <td>
+                                    <%= car.model %>
+                                </td>
+                                <td>
+                                    <%= car.description %>
+                                </td>
+                                <td>
+                                    <a href="/profile/cars/<%=car._id%>" id="agency-update-car-btn"
+                                        class="btn-newsletter">Update</a>
+                                    <button id="agency-add-car-btn" class="btn-newsletter">Remove</button>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+
+
+
+                <%- include('./partials/tail.ejs') %>

@@ -1,0 +1,83 @@
+<div class="overlay" agency-update-car-overlay></div>
+
+<!--
+    - MODAL
+  -->
+
+
+<style>
+    input[type="checkbox"] {
+        display: inline-block;
+        width: fit-content;
+    }
+</style>
+
+
+
+<div class="modal closed" agency-update-car-modal>
+
+    <div class="modal-close-overlay" agency-update-car-modal-overlay></div>
+
+    <div class="modal-content">
+
+        <button class="modal-close-btn" agency-update-car-modal-close>
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <!-- <div class="newsletter-img">
+            <img src="/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+        </div> -->
+
+        <div class="newsletter" style="width: 47vw !important;">
+
+            <form action="#">
+
+                <div class="newsletter-header">
+
+                    <h3 class="newsletter-title">Add a New Car.</h3>
+
+                </div>
+
+                <input type="text" id="update__id" name="_id" class="email-field" hidden readonly>
+                <input type="text" id="update_name" name="name" class="email-field" placeholder="Name" required>
+                <input type="number" id="update_price" name="price" class="email-field" placeholder="Price" required>
+                <input type="text" id="update_city" name="city" class="email-field" placeholder="City" required>
+                <input type="text" id="update_brand" name="brand" class="email-field" placeholder="Brand" required>
+                <input type="text" id="update_model" name="model" class="email-field" placeholder="Model" required>
+                <input type="text" id="update_description" name="description" class="email-field" placeholder="Description" required>
+                <!-- <input type="checkbox" id="isFree" id="update_isFree" name="isFree" class="email-field" placeholder="is Free" required> Is
+                Free -->
+                <input type="date" id="freeFrom" id="update_freeFrom" name="freeFrom" class="email-field" placeholder="Free From" required>
+
+
+                <button type="submit" class="btn-newsletter">Add</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    // modal variables
+    const updateCarModal = document.querySelector('[agency-update-car-modal]');
+    const updateCarModalCloseBtn = document.querySelector('[agency-update-car-modal-close]');
+    const updateCarModalCloseOverlay = document.querySelector('[agency-update-car-modal-overlay]');
+
+    const updateCarBtn = document.querySelector('#agency-update-car-btn');
+
+    updateCarBtn.addEventListener('click', () => {
+        updateCarModal.classList.remove('closed');
+        console.log('here');
+    })
+
+    // modal function
+    const updateCarModalCloseFunc = function () { updateCarModal.classList.add('closed') }
+
+    // modal eventListener
+    updateCarModalCloseOverlay.addEventListener('click', updateCarModalCloseFunc);
+    updateCarModalCloseBtn.addEventListener('click', updateCarModalCloseFunc);
+</script>
