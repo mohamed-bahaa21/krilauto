@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const ObjectID = mongoose.Schema.Types.ObjectId;
 
 const CarSchema = new mongoose.Schema({
-    ownerId: {
+    agencyId: {
         type: ObjectID,
         required: true,
         ref: 'Agency'
@@ -17,11 +17,9 @@ const CarSchema = new mongoose.Schema({
         required: true
     },
     reserves: [{
-        reserveId: {
-            type: ObjectID,
-            ref: 'Reserve',
-            required: true
-        },
+        type: ObjectID,
+        ref: 'Reserve',
+        required: true
     }],
     imgs: [{
         type: String,
@@ -51,7 +49,7 @@ const CarSchema = new mongoose.Schema({
         default: true
     },
     freeFrom: {
-        type: String,
+        type: Date,
         required: true,
         default: "Now"
     }

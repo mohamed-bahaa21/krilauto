@@ -8,10 +8,10 @@ input.daterangepicker({
     autoApply: false,
     startDate: input.data('start'),
     endDate: input.data('end'),
-    minDate: input.data('01/11/2022'),
+    minDate: input.data('11/01/2022'),
     maxDate: input.data('01/01/2023'),
     locale: {
-        format: "DD/MM/YYYY",
+        format: "MM/DD/YYYY",
         separator: " - ",
         applyLabel: "Apply",
         cancelLabel: "Canel",

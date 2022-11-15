@@ -34,8 +34,9 @@
           -->
 
           <div class="car-featured">
-            <div class="showcase-container">
+            <% cars.forEach((car, index)=> { %>
 
+            <div class="showcase-container">
               <div class="showcase">
 
                 <div class="showcase-banner">
@@ -53,22 +54,27 @@
                   </div>
 
                   <h3 class="showcase-title">
-                    <a href="#" class="showcase-title">The best car ever</a>
+                    <a href="/cars/<%=car._id%>" class="showcase-title"><%= car.name %></a>
                   </h3>
 
                   <p class="showcase-desc">
-                    Lorem ipsum dolor sit amet consectetur Lorem ipsum
-                    dolor dolor sit amet consectetur Lorem ipsum dolor
+                    <%= car.description %>
                   </p>
 
                   <div class="price-box">
-                    <p class="price">$1990.00</p>
-                    <del>$2000.00</del>
+                    <p class="price">$<%= car.price %></p>
+                    <del>$<%= car.price+15 %></del>
                   </div>
 
-                  <button class="add-cart-btn" style="display: inline-block;">
-                    <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
-                  </button>
+                  <% if(!user) { %>
+                    <button class="add-cart-btn" style="display: inline-block;" disabled>
+                      <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                    </button>
+                  <% } else { %> 
+                    <button class="add-cart-btn" style="display: inline-block;">
+                      <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                    </button>
+                  <% } %>
 
                 </div>
 
@@ -76,6 +82,7 @@
 
             </div>
 
+            <% }) %>
           </div>
 
 

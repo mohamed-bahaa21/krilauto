@@ -1561,6 +1561,9 @@ main {
   font-weight: var(--weight-300);
 }
 
+.add-cart-btn:disabled {
+  opacity: 0.25;
+}
 .car-featured .add-cart-btn {
   background: var(--salmon-pink);
   padding: 8px 15px;
@@ -2765,7 +2768,7 @@ footer {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center;
+    justify-content: start;
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -2774,9 +2777,9 @@ footer {
   }
 
   .car-featured .showcase-img {
-    /* max-width: -webkit-fit-content; */
-    /* max-width: -moz-fit-content; */
-    /* max-width: fit-content; */
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: 220px;
   }
 
   .car-featured .showcase-content {

@@ -26,49 +26,71 @@
 
 
 
-        <div class="car-box">
+          <div class="car-box">
 
 
-          <!--
+            <!--
             - car FEATURED
           -->
 
-          <div class="car-featured">
-            <div class="showcase-container">
+            <div class="car-featured">
+              <div class="showcase-container">
 
-              <div class="showcase">
+                <div class="showcase">
 
-                <div class="showcase-banner">
-                  <img src="/images/cars/car.jpeg" alt="car" class="showcase-img">
-                </div>
-
-                <div class="showcase-content">
-
-                  <div class="showcase-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
-                    <ion-icon name="star-outline"></ion-icon>
+                  <div class="showcase-banner">
+                    <img src="/images/cars/car.jpeg" alt="car" class="showcase-img">
                   </div>
 
-                  <h3 class="showcase-title">
-                    <a href="#" class="showcase-title">The best car ever</a>
-                  </h3>
+                  <div class="showcase-content">
 
-                  <p class="showcase-desc">
-                    Lorem ipsum dolor sit amet consectetur Lorem ipsum
-                    dolor dolor sit amet consectetur Lorem ipsum dolor
-                  </p>
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </div>
 
-                  <div class="price-box">
-                    <p class="price">$1990.00</p>
-                    <del>$2000.00</del>
+                    <h3 class="showcase-title">
+                      <a href="#" class="showcase-title">
+                        <%= car.name %>
+                      </a>
+                    </h3>
+
+                    <a href="/agencies/<%= car.agencyId._id %>" class="showcase-title">
+                      <%= car.agencyId.name %>
+                    </a>
+
+                    <p class="showcase-desc">
+                      <%= car.description %>
+                    </p>
+
+                    <p class="showcase-desc">
+                      City: <%= car.city %>
+                    </p>
+
+                    <p class="showcase-desc">
+                      Brand: <%= car.brand %>
+                    </p>
+
+                    <p class="showcase-desc">
+                      Model: <%= car.model %>
+                    </p>
+
+                    <div class="price-box">
+                      <p class="price">$<%= car.price %>
+                      </p>
+                      <del>$<%= car.price +15 %></del>
+                    </div>
+
+
+
+                    <button class="add-cart-btn" style="display: inline-block;">
+                      <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                    </button>
+
                   </div>
-
-                  <button class="add-cart-btn" style="display: inline-block;">
-                    <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
-                  </button>
 
                 </div>
 
@@ -76,12 +98,10 @@
 
             </div>
 
+
+
+
           </div>
-
-
-
-
-        </div>
       </div>
     </div>
 
@@ -90,4 +110,4 @@
 
 
 
-  <%- include('./partials/tail.ejs') %>
+    <%- include('./partials/tail.ejs') %>

@@ -32,6 +32,11 @@ const AgencySchema = new mongoose.Schema({
     ref: 'Car',
     required: false
   }],
+  reserves: [{
+    type: ObjectID,
+    ref: 'Reserve',
+    required: true
+  }],
 });
 
 

@@ -14,10 +14,7 @@
     -->
 
     <div class="car-container">
-
       <div class="container">
-
-
         <!--
           - SIDEBAR
         -->
@@ -26,19 +23,23 @@
 
 
 
+        <%if(agency == "signin first"){ %>
+          <h3 class="showcase-title" style="align-self: center;">
+            <a href="#" class="showcase-title">Will be shown after one of their cars is reserved</a>
+          </h3>
+        <% } else { %>
+        
           <div class="car-box">
-
 
             <!--
             - car FEATURED
           -->
-
             <div class="car-featured">
               <img src="/images/cars/agency.jpeg" style="border-radius: 15px; margin-bottom: 15px" width="100%" alt="">
 
               <div class="showcase-container">
                 <h3 class="showcase-title">
-                  <a href="#" class="showcase-title">Agency</a>
+                  <a href="#" class="showcase-title"><%= agency.name %></a>
                 </h3>
 
                 <p class="showcase-desc" style="width: 50%;">
@@ -48,52 +49,49 @@
 
                 <h2 class="title">Agencies Cars</h2>
 
-                <div class="showcase">
+                <% cars.forEach((car, index)=> { %>
+                  <div class="showcase">
 
-                  <div class="showcase-banner">
-                    <img src="/images/cars/car.jpeg" alt="car" class="showcase-img">
-                  </div>
-
-                  <div class="showcase-content">
-
-                    <div class="showcase-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
-                      <ion-icon name="star-outline"></ion-icon>
+                    <div class="showcase-banner">
+                      <img src="/images/cars/car.jpeg" alt="car" class="showcase-img">
                     </div>
-
-                    <h3 class="showcase-title">
-                      <a href="#" class="showcase-title">The best car ever</a>
-                    </h3>
-
-                    <p class="showcase-desc">
-                      Lorem ipsum dolor sit amet consectetur Lorem ipsum
-                      dolor dolor sit amet consectetur Lorem ipsum dolor
-                    </p>
-
-                    <div class="price-box">
-                      <p class="price">$1990.00</p>
-                      <del>$2000.00</del>
+  
+                    <div class="showcase-content">
+  
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                      </div>
+  
+                      <h3 class="showcase-title">
+                        <a href="#" class="showcase-title"><%car.name%></a>
+                      </h3>
+  
+                      <p class="showcase-desc">
+                        <%=car.description%>
+                      </p>
+  
+                      <div class="price-box">
+                        <p class="price">$<%car.price%></p>
+                        <del>$<%=car.price+15%></del>
+                      </div>
+  
+                      <button class="add-cart-btn" style="display: inline-block;">
+                        <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                      </button>
+  
                     </div>
-
-                    <button class="add-cart-btn" style="display: inline-block;">
-                      <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
-                    </button>
-
+  
                   </div>
-
-                </div>
-
+                <% }) %>
               </div>
-
-            </div>
-
-
-
-
+            </div>  
           </div>
+          <% } %>
+
       </div>
     </div>
 

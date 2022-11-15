@@ -28,11 +28,14 @@ const UserSchema = new mongoose.Schema({
     default: false
   },
   reserves: [{
-    reserveId: {
-      type: ObjectID,
-      ref: 'Reserve',
-      required: false
-    },
+    type: ObjectID,
+    ref: 'Reserve',
+    required: false
+  }],
+  allowed_agencies: [{
+    type: ObjectID,
+    ref: 'Agency',
+    required: false
   }],
   cart: {
     type: ObjectID,

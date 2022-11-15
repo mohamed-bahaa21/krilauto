@@ -3,17 +3,26 @@ const ObjectID = mongoose.Schema.Types.ObjectId;
 const Date = mongoose.Schema.Types.Date;
 
 const ReserveSchema = new mongoose.Schema({
-  ownerId: {
+  userId: {
     type: ObjectID,
     required: true,
     ref: 'User'
+  },
+  agencyId: {
+    type: ObjectID,
+    required: true,
+    ref: 'Agency'
   },
   carId: {
     type: ObjectID,
     ref: 'Car',
     required: true
   },
-  ownerName: {
+  userName: {
+    type: String,
+    required: true
+  },
+  agencyName: {
     type: String,
     required: true
   },
@@ -21,18 +30,17 @@ const ReserveSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  startDate: {
-    type: Date,
-    required: true
-  },
-  endDate: {
-    type: Date,
-    required: true
-  },
   price: {
     type: Number,
     required: true,
-    default: 0
+  },
+  startDate: {
+    type: String,
+    required: true
+  },
+  endDate: {
+    type: String,
+    required: true
   },
   fullFilled: {
     type: Boolean,
