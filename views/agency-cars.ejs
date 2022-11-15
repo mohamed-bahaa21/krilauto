@@ -1,14 +1,17 @@
 <%- include('./partials/head.ejs') %>
 
-<style>
-    .btn-newsletter {
-        margin: 15px auto;
-    }
-</style>
+    <style>
+        .btn-newsletter {
+            margin: 15px auto;
+        }
+    </style>
 
     <%- include('./partials/messages.ejs') %>
         <%- include('./partials/agency-add-car.ejs', {carsLength: cars.length, verified: user.verified}) %>
             <%- include('./partials/agency-update-car.ejs') %>
+                <div class="container">
+                    <a style="text-decoration: underline;" href="/profile">Go Back</a>
+                </div>
 
                 <table style="margin: 0 auto; scale: 0.90;">
                     <thead>
@@ -50,7 +53,8 @@
                                 <td>
                                     <a href="/profile/cars/<%=car._id%>" id="agency-update-car-btn"
                                         class="btn-newsletter">Update</a>
-                                    <button id="agency-add-car-btn" class="btn-newsletter">Remove</button>
+                                    <a href="/profile/cars/delete/<%=car._id%>" id="agency-update-car-btn"
+                                        class="btn-newsletter">Remove</a>
                                 </td>
                             </tr>
                             <% }); %>

@@ -62,11 +62,70 @@
 
 
 
-        <div class="car-box">
+          <div class="car-main">
 
-          <%- include('partials/cars.ejs') %>
-          
-        </div>
+            <h2 class="title">New Arrivals</h2>
+
+            <div class="car-grid">
+
+              <!-- =========================== -->
+                <% cars.forEach((car, index)=> { %>
+
+                  <div class="showcase">
+
+                    <div class="showcase-banner">
+                      <img src="images/cars/car.jpeg" alt="car" class="car-img default" width="300">
+                      <img src="images/cars/car.jpeg" alt="car" class="car-img hover" width="300">
+
+                      <p class="showcase-badge angle black">sale</p>
+
+                      <div class="showcase-actions">
+
+                        <button class="btn-action">
+                          <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+
+
+                        <button class="btn-action">
+                          <ion-icon name="car-sport-outline"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="showcase-content">
+                      <a href="/agencies/<%=car.agencyId%>" class="showcase-category">Agency</a>
+
+                      <h3>
+                        <a href="cars/<%= car._id %>" class="showcase-title">
+                          <%= car.name %>
+                        </a>
+                      </h3>
+
+                      <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                      </div>
+
+                      <div class="price-box">
+                        <p class="price">$<%= car.price %>
+                        </p>
+                        <del>$<%= car.price + 15 %></del>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <% }); %>
+
+                    <!-- =========================== -->
+
+            </div>
+          </div>
 
       </div>
 
@@ -77,4 +136,4 @@
 
 
 
-  <%- include('./partials/tail.ejs') %>
+    <%- include('./partials/tail.ejs') %>

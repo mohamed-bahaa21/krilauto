@@ -18,7 +18,14 @@ const {
 
 
 // ===================================
-router.get('/', (req, res) => res.render('index', { user: req.user }));
+router.get('/', (req, res) => {
+  Cars.find().sort({freeFrom: -1}).limit(9).then(cars => {
+    res.render('index', { 
+      user: req.user,
+      cars: cars
+    })
+  })
+});
 
 // User Signout
 router.get('/signout', (req, res) => {
@@ -169,13 +176,13 @@ router.get('/profile/reserves', ensureAuthenticated, async (req, res) => {
   try {
     let reserves = await Reserves.find({ agencyId: req.user._id });
     if (reserves) {
-      res.render('/profile/reserve', {
+      res.render('agency-reserves', {
         user: req.user,
         reserves: reserves
       });
     }
   } catch (error) {
-    res.render('/profile/reserve', {
+    res.render('agency-reserves', {
       user: req.user,
     });
   }

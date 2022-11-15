@@ -51,7 +51,7 @@ const CarSchema = new mongoose.Schema({
     freeFrom: {
         type: Date,
         required: true,
-        default: "Now"
+        default: Date.now(),
     }
 })
 

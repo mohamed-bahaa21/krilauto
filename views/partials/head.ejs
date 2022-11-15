@@ -215,17 +215,19 @@
           </a> -->
 
           <% if(user !==undefined) { %>
-            <a href="/reserve" class="action-btn">
-              <ion-icon name="car-sport-outline"></ion-icon>
-              <span class="count-b">
-                <ion-icon name="alert-outline"></ion-icon>
-              </span>
-            </a>
+            <% if(user.account_type=="User" ) { %>
+              <a href="/reserve" class="action-btn">
+                <ion-icon name="car-sport-outline"></ion-icon>
+                <span class="count-b">
+                  <ion-icon name="alert-outline"></ion-icon>
+                </span>
+              </a>
+              <% } %>
 
-            <a href="/signout" class="action-btn">
-              <ion-icon style="display: inline-block;" name="log-out-outline"></ion-icon>
-            </a>
-            <% } %>
+                <a href="/signout" class="action-btn">
+                  <ion-icon style="display: inline-block;" name="log-out-outline"></ion-icon>
+                </a>
+                <% } %>
 
         </div>
 
@@ -249,10 +251,12 @@
       </a>
 
       <% if(user !==undefined) { %>
-        <a href="/reserve" class="action-btn">
-          <ion-icon name="car-sport-outline" style="display: inline-block"></ion-icon>
-          <span class="count-b">
-            <ion-icon name="alert-outline" style=" position: absolute;
+        <% if(user.account_type=="User" ) { %>
+
+          <a href="/reserve" class="action-btn">
+            <ion-icon name="car-sport-outline" style="display: inline-block"></ion-icon>
+            <span class="count-b">
+              <ion-icon name="alert-outline" style=" position: absolute;
           top: 5px;
           right: 0px;
           background: var(--bittersweet);
@@ -263,14 +267,16 @@
           padding: 2px 2px;
           -webkit-border-radius: 20px;
           border-radius: 20px;"></ion-icon>
-          </span>
-        </a>
+            </span>
+          </a>
 
-        <% } %>
+          <% } %>
 
-          <button class="action-btn" data-mobile-menu-open-btn>
-            <ion-icon name="grid-outline"></ion-icon>
-          </button>
+            <% } %>
+
+              <button class="action-btn" data-mobile-menu-open-btn>
+                <ion-icon name="grid-outline"></ion-icon>
+              </button>
 
     </div>
 
