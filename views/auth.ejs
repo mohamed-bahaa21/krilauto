@@ -100,6 +100,13 @@
                             <br>
                             <form action="/signin" method="POST">
                                 <div class="form-group">
+                                    <label for="email">Account Type :</label>
+                                    <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
+                                        <option value="User">User</option>
+                                        <option value="Agency">Agency</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="email">Email Address :</label>
                                     <input type="email" id="email" name="email" class="form-control"
                                         placeholder="Enter Your Email Address" />
@@ -131,6 +138,13 @@
                             <br>
                             <form action="/signup" method="POST">
                                 <div class="form-group">
+                                    <label for="email">Account Type :</label>
+                                    <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
+                                        <option value="User">User</option>
+                                        <option value="Agency">Agency</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="name">User Name :</label>
                                     <input type="name" id="name" name="name" class="form-control"
                                         placeholder="Enter Your Name" />
@@ -139,13 +153,6 @@
                                     <label for="email">Email Address :</label>
                                     <input type="email" id="email" name="email" class="form-control"
                                         placeholder="Enter Your Email Address" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Account Type :</label>
-                                    <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
-                                        <option value="User">User</option>
-                                        <option value="Agency">Agency</option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>

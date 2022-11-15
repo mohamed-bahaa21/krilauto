@@ -16,7 +16,8 @@ const path = require('path');
 const app = express();
 
 // Passport service Config
-require('./services/passport')(passport)
+// require('./services/user.passport')(passport)
+// require('./services/agency.passport')(passport)
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {

@@ -31,6 +31,9 @@ router.get('/signout', (req, res) => {
 // User Profile
 router.get('/profile', ensureAuthenticated, (req, res) => {
 
+  console.log('====================================');
+  console.log(req.user);
+  console.log('====================================');
   try {
     Reserves.find({ '_id': { $in: req.user.reserves } }).then(reserves => {
       res.render('profile', {
@@ -312,9 +315,9 @@ router.post('/signup', (req, res) => {
           });
 
           bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUsers.password, salt, (err, hash) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
               if (err) throw err;
-              newUsers.password = hash;
+              newUser.password = hash;
               newUser
                 .save()
                 .then(user => {
@@ -335,11 +338,25 @@ router.post('/signup', (req, res) => {
 
 // User Signin
 router.post('/signin', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect: '/profile',
-    failureRedirect: '/auth',
-    failureFlash: true
-  })(req, res, next);
+  let { user_type } = req.body;
+
+  if (user_type == "User") {
+    require('../services/user.passport')(passport);
+    passport.authenticate('user-local', {
+      successRedirect: '/profile',
+      failureRedirect: '/auth',
+      failureFlash: true
+    })(req, res, next);
+  }
+
+  if (user_type == "Agency") {
+    require('../services/agency.passport')(passport)
+    passport.authenticate('agency-local', {
+      successRedirect: '/profile',
+      failureRedirect: '/auth',
+      failureFlash: true
+    })(req, res, next);
+  }
 });
 
 module.exports = router;
