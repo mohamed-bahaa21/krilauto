@@ -170,6 +170,7 @@ input::placeholder {
 
 body {
   background: var(--white);
+  min-height: 100vh !important;
 }
 
 /**

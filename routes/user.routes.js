@@ -31,9 +31,9 @@ router.get('/signout', (req, res) => {
 // User Profile
 router.get('/profile', ensureAuthenticated, (req, res) => {
 
-  console.log('====================================');
-  console.log(req.user);
-  console.log('====================================');
+  // console.log('====================================');
+  // console.log(req.user);
+  // console.log('====================================');
   try {
     Reserves.find({ '_id': { $in: req.user.reserves } }).then(reserves => {
       res.render('profile', {
