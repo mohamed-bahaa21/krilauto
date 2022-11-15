@@ -205,15 +205,22 @@ const { createOrder, capturePayment } = require('../services/paypal');
 router.get('/reserve', ensureAuthenticated, async (req, res) => {
   try {
     Reserves.findOne({ _id: req.user.cart }).then(reserve => {
-      res.render('reserve', {
-        user: req.user,
-        reserve: reserve,
-      });
+      if (reserve) {
+        res.render('reserve', {
+          user: req.user,
+          reserve: reserve,
+        });
+      } else {
+        res.render('reserve', {
+          user: req.user,
+          reserve: "no reserve",
+        });
+      }
     });
-
   } catch (error) {
     res.render('reserve', {
       user: req.user,
+      reserve: "no reserve",
     });
   }
 });

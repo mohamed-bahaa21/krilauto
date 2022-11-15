@@ -1,151 +1,166 @@
 <%- include('./partials/head.ejs') %>
 
-    <!-- multistep form -->
-    <form id="msform" action="/reserve" method="POST">
-        <!-- progressbar -->
-        <ul id="progressbar">
-            <li class="active">Reservation</li>
-            <li>Payment Methods</li>
-            <li>Checkout</li>
-        </ul>
-        <!-- fieldsets -->
-        <fieldset>
-            <h2 class="fs-title">Reservation</h2>
-            <!-- <h3 class="fs-subtitle"></h3> -->
 
-            <input type="button" name="next" style="margin: 0 auto;" class="next action-button" value="Next" />
-            <div
-                style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
-                <span
-                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
-                </span>
-                <h3 style="margin: 0 auto;">
-                    <div class="price-box" style="display: flex;">
-                        <p class="price">$150.00</p>
-                        <del>$200.00</del>
-                    </div>
-                </h3>
-            </div>
-            <table style="margin: 0 auto; scale: 0.90;">
-                <thead>
-                    <tr>
-                        <th>Cover</th>
-                        <th>Name</th>
-                        <th>Duration</th>
-                        <th>Price</th>
-                        <th>Rating</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="#" class="showcase-img-box">
-                                <img src="images/cars/car.jpeg" alt="car" class="showcase-img" width="70">
-                            </a>
-                        </td>
-                        <td><a href="#">iX Sports Activity Vehicle</a></td>
-                        <td>3 days</td>
-                        <td>150$</td>
-                        <td>
-                            <div class="showcase-rating">
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star"></ion-icon>
-                                <ion-icon name="star-outline"></ion-icon>
-                                <ion-icon name="star-outline"></ion-icon>
+    <% if(reserve=="no reserve" ) { %>
+        <h3 class="showcase-title" style="align-self: center;">
+            <a href="/" class="showcase-title" style="width: fit-content; margin: 20px auto;">You need to reserve a car
+                first !</a>
+        </h3>
+        <% } else { %>
+            <!-- multistep form -->
+            <form id="msform" action="/reserve" method="POST">
+                <!-- progressbar -->
+                <ul id="progressbar">
+                    <li class="active">Reservation</li>
+                    <li>Payment Methods</li>
+                    <li>Checkout</li>
+                </ul>
+                <!-- fieldsets -->
+                <fieldset>
+                    <h2 class="fs-title">Reservation</h2>
+                    <!-- <h3 class="fs-subtitle"></h3> -->
+
+                    <input type="button" name="next" style="margin: 0 auto;" class="next action-button" value="Next" />
+                    <table style="margin: 0 auto; scale: 0.90;">
+                        <thead>
+                            <tr>
+                                <th>Cover</th>
+                                <th>Car Name</th>
+                                <th>Agency Name</th>
+                                <th>From</th>
+                                <th>Until</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#" class="showcase-img-box">
+                                        <img src="images/cars/car.jpeg" alt="car" class="showcase-img" width="70">
+                                    </a>
+                                </td>
+                                <td><a href="#">
+                                        <%= reserve.agencyName %>
+                                    </a></td>
+                                <td><a href="#">
+                                        <%= reserve.carName %>
+                                    </a></td>
+                                <td>
+                                    <%= reserve.startDate %>
+                                </td>
+                                <td>
+                                    <%= reserve.endDate %>
+                                </td>
+                                <td>
+                                    <%= reserve.price %>
+                                </td>
+                                <td>
+                                    <button class="delete-btn" style="--fs-11: 0.875rem;">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div
+                        style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                        <span
+                            style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                        </span>
+                        <h3 style="margin: 0 auto;">
+                            <div class="price-box" style="display: flex;">
+                                <p class="price">$<%= user.cart.price %>
+                                </p>
+                                <del>$<%= user.cart.price+15 %></del>
                             </div>
-                        </td>
-                        <td>
-                            <button class="delete-btn" style="--fs-11: 0.875rem;">Delete</button>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </fieldset>
-
-        <fieldset>
-            <h2 class="fs-title">Payment Methods</h2>
-            <!-- <h3 class="fs-subtitle"></h3> -->
-            <input type="button" name="next" style="margin: 0 auto; display: inline-block" class="next action-button"
-                value="Next" />
-            <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
-                class="previous action-button" value="Previous" />
-
-            <div
-                style="margin: 10px auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
-                <span
-                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
-                </span>
-                <h3 style="margin: 0 auto;">
-                    <div class="price-box" style="display: flex;">
-                        <p class="price">$150.00</p>
-                        <del>$200.00</del>
+                        </h3>
                     </div>
-                </h3>
-            </div>
+                </fieldset>
 
-            <style>
-                .active-payment {
-                    margin-bottom: 15px;
-                    display: flex;
-                    justify-content: flex-start;
-                    border: 1px solid hsl(0deg 60% 64%) !important;
-                    padding: 5px 10px;
-                    border-radius: 5px;
-                    color: #da6c6c;
-                    box-shadow: 0 0 20px -7px #da6c6c;
-                }
-            </style>
-            <div class="">
-                <div class=""
-                    style="margin-bottom: 15px; display: flex;justify-content: flex-start;border: 1px solid var(--spanish-gray);padding: 5px 10px; border-radius: 5px;">
-                    <div style="width: 84px; align-self: center; padding-right: 10px;">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAAgCAMAAAAfbBf3AAAAxlBMVEX///8AL4YAnN4BIGkAmt0ALIUAmN0AKoQAldwAJ4MAJ3fj8PoAn+EAJYLj5e0AGn8AIoEAEH0AOI0AouDt8Pbn9Pv29/r3/P4AFH1xgrEAHoDv+v2x3fPCyt3R2OfB4vUBGmU+XJ9nvekBcbOyvdZxyO1fd613kb+Szu4wV54qr+QaSZhkgbaOosdPca0aOX8AAHtGaKcBQoxOuugBEF+h3PQUP4+Gl7+m1PCD0PCfqslMruMAe8DX8PoAZqsBLHYBWJo4ltCTVHCOAAAEo0lEQVRIidWWeXOySBCHGTLDETkMh0TlUIIEvN74ukFFye5+/y+13YNGUGvdyh9WbVcqo804P7rn6Z4RBEFwZoyczMrnifAgS17J2Zj6aoWP0V10Sctk03iEbG+ut3WJvnyIbi5f6JKX3iN0LXal+4hEO0esnk9GiNm5mGKczPHuL+i5nZMNbz3GBzCGte7z07eNfvmt5Z3+xws3k6yS+1tQrZXaJHsdXb9nJCoKhbEcXOo+PSufzZnhSv2uMnNxVzeaUrE2SiX/6vHOpnQKY41zU3b0W5SaGUpyJMAiqM7uV7dvU5Hamobq1L4KeKKJdA1jHUxT94+DKDUDTgpG1P5i07dw5t2AtxjqJMtiDT9El49jUZQmMNY4t7aXitKuMbOEQlMR8TFO3XDfv/CVSSKdAjlDGyP2L6fvKY+qd4nV6OnQ1vU2XcJmqJuibikIRpCUSWAYQRCEXoj/64n40XBjSPParRV4vFXkb/3IdaMoqgQXvEoF0Ly0dUdPXzC9yYPR14m6BF0P4sX9DfqFaZqk359ZJHU2hWXNOOXh2LKsslqD7mRYx0vtoefHtiRJ9iS2bW3nReCVIPzE5LpH0dHo9xu+peKedcOlStQ0NMIStoTlXjLrMiarsiwz1u07SSGzVzzEnPmA6asQcZZ2VVUBQEhQZksUjeOdeZ+Asw2z3/mp8DzC8vnz119fB14A08Z+BdBI2ThNVwTSrJfhTCWytUo55INFzxnLRE8RA53Is6TGeR/HUxFGGkU42Os132xI466Fc/H1BnY4KBqHULnEGSpXB7qYOe8tu0QeJ2EYpOAwAyhErC54vYIx690R/LpyeYDSzsNi3vtV5R93+4RzwXHORY1bXe/StFW+eG7IOphZbAxjQFhRcj/cF7ph/V6DsLeCcIECD3CudalkZ8NIgWg5LFtMcHXCWeDba30dFfm7StNW0WFDY6s0Tftl4AilSeSVUeefsSLEAw3K+30xIHIO0SPOogZ5jidb6JITKKo9X8bHPlVxnGF5g+NsvWniKT2SFrdknXdMbICnglfzoKan/MtjfANM9AyzvIEJFZZRHAFXLk4HuMWYT4d2QmM3Qt3hEWdWHLiuNp1O4yxym7JCmKpE7zunr6DLMC7wA09z1A2Qc/hb4iSOc/a9T1hUe1ywwgSfceaXHDZTeLQZvOXV2RUCr4Dt925Dn7FWZbJYIs4b/j78YijPePfg9Xmu/h3sthZ/+tkeudlCVVGOc8qb/Yz3cO368MBoYFXzfMl0LOS6yKFqAeeEN8B3BN4q622krabckSBg0bZtzvcZZ95yWa7xs+Oqh/MAdVkeBI3vpgo51dWiUGWz9ieom/KUeFuFthbKFA6NiMrgjyWqYA8mMvYdjjNdVzfjzfN83rj49IIlMeVxmaR5ntb+JTs2cND1gZFJgxBwaFRb+/6a+yfwGG8b8OM8X/3Ntze+qdtzwFoevPY4Pe/bv8E76GknPNd1W4iAo+O63tE/hIGvgdZZ8yaW3boO3TcEQJ//5Jcuv5kAbT8x7M+y9R/ue9fWsfEaZt/E+a4tBh8fH8H9ebfM4/az3wo9z3vEPf9/bf8Am4p1OXgAohQAAAAASUVORK5CYII="
-                            alt="car" class="car-img default" width="100%" style="scale: 0.75;" />
-                    </div>
-                    <br><br>
-                    <div id="paypal-button-container"></div>
-                    <%- include('./partials/paypal.ejs') %>
-                    <!-- <div id="paypal-button-container" class="" style="align-items: center; text-align: left;">
+                <fieldset>
+                    <h2 class="fs-title">Payment Methods</h2>
+                    <!-- <h3 class="fs-subtitle"></h3> -->
+                    <input type="button" name="next" style="margin: 0 auto; display: inline-block"
+                        class="next action-button" value="Next" />
+                    <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
+                        class="previous action-button" value="Previous" />
+
+                    <style>
+                        .active-payment {
+                            margin-bottom: 15px;
+                            display: flex;
+                            justify-content: flex-start;
+                            border: 1px solid hsl(0deg 60% 64%) !important;
+                            padding: 5px 10px;
+                            border-radius: 5px;
+                            color: #da6c6c;
+                            box-shadow: 0 0 20px -7px #da6c6c;
+                        }
+                    </style>
+                    <div class="">
+                        <div class=""
+                            style="margin-bottom: 15px; display: flex;justify-content: flex-start;border: 1px solid var(--spanish-gray);padding: 5px 10px; border-radius: 5px;">
+                            <div style="width: 84px; align-self: center; padding-right: 10px;">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAAgCAMAAAAfbBf3AAAAxlBMVEX///8AL4YAnN4BIGkAmt0ALIUAmN0AKoQAldwAJ4MAJ3fj8PoAn+EAJYLj5e0AGn8AIoEAEH0AOI0AouDt8Pbn9Pv29/r3/P4AFH1xgrEAHoDv+v2x3fPCyt3R2OfB4vUBGmU+XJ9nvekBcbOyvdZxyO1fd613kb+Szu4wV54qr+QaSZhkgbaOosdPca0aOX8AAHtGaKcBQoxOuugBEF+h3PQUP4+Gl7+m1PCD0PCfqslMruMAe8DX8PoAZqsBLHYBWJo4ltCTVHCOAAAEo0lEQVRIidWWeXOySBCHGTLDETkMh0TlUIIEvN74ukFFye5+/y+13YNGUGvdyh9WbVcqo804P7rn6Z4RBEFwZoyczMrnifAgS17J2Zj6aoWP0V10Sctk03iEbG+ut3WJvnyIbi5f6JKX3iN0LXal+4hEO0esnk9GiNm5mGKczPHuL+i5nZMNbz3GBzCGte7z07eNfvmt5Z3+xws3k6yS+1tQrZXaJHsdXb9nJCoKhbEcXOo+PSufzZnhSv2uMnNxVzeaUrE2SiX/6vHOpnQKY41zU3b0W5SaGUpyJMAiqM7uV7dvU5Hamobq1L4KeKKJdA1jHUxT94+DKDUDTgpG1P5i07dw5t2AtxjqJMtiDT9El49jUZQmMNY4t7aXitKuMbOEQlMR8TFO3XDfv/CVSSKdAjlDGyP2L6fvKY+qd4nV6OnQ1vU2XcJmqJuibikIRpCUSWAYQRCEXoj/64n40XBjSPParRV4vFXkb/3IdaMoqgQXvEoF0Ly0dUdPXzC9yYPR14m6BF0P4sX9DfqFaZqk359ZJHU2hWXNOOXh2LKsslqD7mRYx0vtoefHtiRJ9iS2bW3nReCVIPzE5LpH0dHo9xu+peKedcOlStQ0NMIStoTlXjLrMiarsiwz1u07SSGzVzzEnPmA6asQcZZ2VVUBQEhQZksUjeOdeZ+Asw2z3/mp8DzC8vnz119fB14A08Z+BdBI2ThNVwTSrJfhTCWytUo55INFzxnLRE8RA53Is6TGeR/HUxFGGkU42Os132xI466Fc/H1BnY4KBqHULnEGSpXB7qYOe8tu0QeJ2EYpOAwAyhErC54vYIx690R/LpyeYDSzsNi3vtV5R93+4RzwXHORY1bXe/StFW+eG7IOphZbAxjQFhRcj/cF7ph/V6DsLeCcIECD3CudalkZ8NIgWg5LFtMcHXCWeDba30dFfm7StNW0WFDY6s0Tftl4AilSeSVUeefsSLEAw3K+30xIHIO0SPOogZ5jidb6JITKKo9X8bHPlVxnGF5g+NsvWniKT2SFrdknXdMbICnglfzoKan/MtjfANM9AyzvIEJFZZRHAFXLk4HuMWYT4d2QmM3Qt3hEWdWHLiuNp1O4yxym7JCmKpE7zunr6DLMC7wA09z1A2Qc/hb4iSOc/a9T1hUe1ywwgSfceaXHDZTeLQZvOXV2RUCr4Dt925Dn7FWZbJYIs4b/j78YijPePfg9Xmu/h3sthZ/+tkeudlCVVGOc8qb/Yz3cO368MBoYFXzfMl0LOS6yKFqAeeEN8B3BN4q622krabckSBg0bZtzvcZZ95yWa7xs+Oqh/MAdVkeBI3vpgo51dWiUGWz9ieom/KUeFuFthbKFA6NiMrgjyWqYA8mMvYdjjNdVzfjzfN83rj49IIlMeVxmaR5ntb+JTs2cND1gZFJgxBwaFRb+/6a+yfwGG8b8OM8X/3Ntze+qdtzwFoevPY4Pe/bv8E76GknPNd1W4iAo+O63tE/hIGvgdZZ8yaW3boO3TcEQJ//5Jcuv5kAbT8x7M+y9R/ue9fWsfEaZt/E+a4tBh8fH8H9ebfM4/az3wo9z3vEPf9/bf8Am4p1OXgAohQAAAAASUVORK5CYII="
+                                    alt="car" class="car-img default" width="100%" style="scale: 0.75;" />
+                            </div>
+                            <br><br>
+                            <div id="paypal-button-container"></div>
+                            <%- include('./partials/paypal.ejs') %>
+                                <!-- <div id="paypal-button-container" class="" style="align-items: center; text-align: left;">
                         <span style="display: block;font-size: 0.90em;font-weight: 700;">PayPal</span>
                         <span style="font-size: 0.75em;
                 color: var(--spanish-gray);
                 font-weight: 400; width: max-content;">Without comission</span>
                     </div> -->
-                </div>
-            </div>
 
-
-
-
-        </fieldset>
-
-        <fieldset>
-            <h2 class="fs-title">Checkout</h2>
-            <!-- <h3 class="fs-subtitle"></h3> -->
-
-            <input type="submit" name="submit" style="margin: 0 auto; display: inline-block"
-                class="submit action-button" value="Submit" />
-
-            <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
-                class="previous action-button" value="Previous" />
-
-            <div
-                style="margin: 10px auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
-                <span
-                    style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
-                </span>
-                <h3 style="margin: 0 auto;">
-                    <div class="price-box" style="display: flex;">
-                        <p class="price">$150.00</p>
-                        <del>$200.00</del>
+                                <div
+                                    style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                                    <span
+                                        style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                                    </span>
+                                    <h3 style="margin: 0 auto;">
+                                        <div class="price-box" style="display: flex;">
+                                            <p class="price">$<%= user.cart.price %>
+                                            </p>
+                                            <del>$<%= user.cart.price+15 %></del>
+                                        </div>
+                                    </h3>
+                                </div>
+                        </div>
                     </div>
-                </h3>
-            </div>
 
-        </fieldset>
-    </form>
 
-    <%- include('./partials/tail.ejs') %>
+
+
+                </fieldset>
+
+                <fieldset>
+                    <h2 class="fs-title">Checkout</h2>
+                    <!-- <h3 class="fs-subtitle"></h3> -->
+
+                    <input type="submit" name="submit" style="margin: 0 auto; display: inline-block"
+                        class="submit action-button" value="Submit" />
+
+                    <input type="button" name="previous" style="margin: 0 auto; display: inline-block;"
+                        class="previous action-button" value="Previous" />
+
+                    <div
+                        style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
+                        <span
+                            style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                        </span>
+                        <h3 style="margin: 0 auto;">
+                            <div class="price-box" style="display: flex;">
+                                <p class="price">$<%= user.cart.price %>
+                                </p>
+                                <del>$<%= user.cart.price+15 %></del>
+                            </div>
+                        </h3>
+                    </div>
+
+                </fieldset>
+            </form>
+            <% } %>
+
+                <%- include('./partials/tail.ejs') %>
