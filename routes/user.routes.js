@@ -20,7 +20,9 @@ const {
 
 // ===================================
 router.get('/set-lang/:lang', (req, res) => {
-  req.session.ulang = req.params.lang;  
+  let refer = req.headers.referrer || req.headers.referer;
+  req.session.ulang = req.params.lang;
+  res.redirect(refer);
 });
 
 router.get('/', (req, res) => {

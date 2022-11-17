@@ -154,17 +154,28 @@
         </div>
 
         <div class="header-top-actions">
-
           <select name="currency">
-
             <option value="usd">USD &dollar;</option>
-
           </select>
 
-          <select name="language">
-            <option value="fr"><a href="/set-lang/fr">Fran&ccedil;ais</a></option>
-            <option value="en"><a href="/set-lang/en">English</a></option>
-          </select>
+          <nav class="desktop-navigation-menu">
+            <ul class="desktop-menu-category-list">
+              <li class="menu-category">
+                <a href="#" class="menu-title" style="opacity: 0.75; font-weight: 500; font-size: 0.75em; top: -5px; text-transform: capitalize;">
+                  languages
+                </a>
+                <ul class="dropdown-list" style="width: fit-content;">
+                  <li class="dropdown-item">
+                    <a href="/set-lang/fr">Fran&ccedil;ais</a>
+                  </li>
+
+                  <li class="dropdown-item">
+                    <a href="/set-lang/en">English</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
 
         </div>
 
@@ -219,11 +230,11 @@
             <% if(user.account_type=="User" ) { %>
               <a href="/reserves" class="action-btn">
                 <ion-icon name="car-sport-outline"></ion-icon>
-                <% if(user.cart !== "") { %>
+                <% if(user.cart !=="" ) { %>
                   <span class="count-b">
                     <ion-icon name="alert-outline"></ion-icon>
                   </span>
-                <% } %>
+                  <% } %>
               </a>
               <% } %>
 

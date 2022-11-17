@@ -51,5 +51,6 @@
     "add": "add",
 
     "filter": "filter",
-    "model": "model"
+    "model": "model",
+    "languages": "Languages"
 }
