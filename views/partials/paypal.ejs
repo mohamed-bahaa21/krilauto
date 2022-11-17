@@ -7,7 +7,7 @@
         .Buttons({
             // Sets up the transaction when a payment button is clicked
             createOrder: function (data, actions) {
-                return fetch("/reservee", {
+                return fetch("/reserves/<%=reserveId%>", {
                     method: "post",
                     // use the "body" param to optionally pass additional order information
                     // like product ids or amount
@@ -17,8 +17,11 @@
             },
             // Finalize the transaction after payer approval
             onApprove: function (data, actions) {
-                return fetch(`/reserve/${data.orderID}/capture`, {
+                return fetch(`/reserves/<%=reserveId%>/capture`, {
                     method: "post",
+                    body: {
+                        orderId: data.orderID
+                    }
                 })
                     .then((response) => response.json())
                     .then((orderData) => {

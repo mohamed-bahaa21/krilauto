@@ -210,23 +210,23 @@ router.get('/profile/reserves/:reserveId', ensureAuthenticated, async (req, res)
 const { PAYPAL_CLIENT_ID, PAYPAL_APP_SECRET } = process.env;
 const { createOrder, capturePayment } = require('../services/paypal');
 
-router.get('/reserve', ensureAuthenticated, async (req, res) => {
+router.get('/reserves', ensureAuthenticated, async (req, res) => {
   try {
     Reserves.find({ '_id': { $in: req.user.reserves }, fullFilled: false }).then(reserves => {
       if (reserves) {
-        res.render('reserve', {
+        res.render('reserves', {
           user: req.user,
           reserves: reserves,
         });
       } else {
-        res.render('reserve', {
+        res.render('reserves', {
           user: req.user,
           reserves: "no reserves",
         });
       }
     });
   } catch (error) {
-    res.render('reserve', {
+    res.render('reserves', {
       user: req.user,
       reserves: "no reserves",
     });
@@ -253,7 +253,6 @@ router.post("/user-create-reserve", async (req, res) => {
 
   numberOfDays = daysBetween(start_date, end_date) + 1;
 
-
   let new_reserve = new Reserves({
     userId: req.user._id,
     agencyId: agencyId,
@@ -272,21 +271,21 @@ router.post("/user-create-reserve", async (req, res) => {
     Users.findOneAndUpdate({ _id: req.user._id }, { $push: { reserves: new_reserve._id } }).then(() => {
       Agencies.findOneAndUpdate({ _id: agencyId }, { $push: { reserves: new_reserve._id } }).then(() => {
         req.flash('success_msg', "Reserve was created Successfully");
-        res.redirect('/reserve');
+        res.redirect('/reserves');
       })
     })
   })
 
 });
 
-router.delete('/user-delete-reserve/:reserveId', ensureAuthenticated, (req, res) => {
+router.get('/user-delete-reserve/:reserveId', ensureAuthenticated, (req, res) => {
   let reserveId = req.params.reserveId;
   Reserves.findOneAndDelete({ _id: reserveId }).then(() => {
     Agencies.findOneAndUpdate({ _id: req.user._id }, { $pull: { reserves: reserveId } }).then(() => {
       Users.findOneAndUpdate({ _id: req.user._id }, { $pull: { reserves: reserveId } }).then(() => {
 
         req.flash('success_msg', 'Car was deleted successfully');
-        res.redirect('/reserve');
+        res.redirect('/reserves');
 
       })
     })
@@ -294,17 +293,31 @@ router.delete('/user-delete-reserve/:reserveId', ensureAuthenticated, (req, res)
 })
 
 // create a new order
-router.post("/reserve", async (req, res) => {
+router.get("/reserves/:reserveId", async (req, res) => {
+  Reserves.findOne({ _id: req.params.reserveId }).then((reserve) => {
+    res.render('reserves-reserve', {
+      user: req.user,
+      reserve: reserve,
+    });
+  })
+});
+
+router.post("/reserves/:reserveId", async (req, res) => {
   const order = await createOrder();
   res.json(order);
 });
 
 // capture payment & store order information or fullfill order
-router.post("/reserve/:reserveID/capture", async (req, res) => {
+router.post("/reserves/:reserveID/capture", async (req, res) => {
   const { reserveID } = req.params;
-  const captureData = await capturePayment(reserveID);
-  // TODO: store payment information such as the transaction ID
-  res.json(captureData);
+  let { orderId } = req.body;
+  const captureData = await capturePayment(orderId);
+  
+  if (captureData) {
+    Reserves.findOneAndUpdate({ _id: reserveID }, { orderId: orderId, fullFilled: true }).then(() => {
+      res.json(captureData);
+    })
+  }
 });
 
 // User Agency

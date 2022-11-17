@@ -46,6 +46,10 @@ const ReserveSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: false
+  },
+  orderId: {
+    type: String,
+    required: false
   }
 }, {
   timestamps: true
