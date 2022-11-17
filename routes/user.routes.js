@@ -3,6 +3,7 @@ const router = express.Router();
 const { upload } = require('../services/multer')
 let mongoose = require('mongoose');
 const ObjectID = mongoose.Schema.Types.ObjectId;
+// const Date = mongoose.Schema.Types.Date;
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
@@ -231,6 +232,16 @@ router.get('/reserve', ensureAuthenticated, async (req, res) => {
     });
   }
 });
+function treatAsUTC(date) {
+  var result = new Date(date);
+  result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+  return result;
+}
+
+function daysBetween(startDate, endDate) {
+  var millisecondsPerDay = 24 * 60 * 60 * 1000;
+  return (treatAsUTC(endDate) - treatAsUTC(startDate)) / millisecondsPerDay;
+}
 
 // create a new order
 router.post("/user-create-reserve", async (req, res) => {
@@ -240,6 +251,9 @@ router.post("/user-create-reserve", async (req, res) => {
   let start_date = dates.slice(0, 10);
   let end_date = dates.slice(13, 23);
 
+  numberOfDays = daysBetween(start_date, end_date) + 1;
+
+
   let new_reserve = new Reserves({
     userId: req.user._id,
     agencyId: agencyId,
@@ -247,7 +261,7 @@ router.post("/user-create-reserve", async (req, res) => {
     userName: req.user.name,
     agencyName: agencyName,
     carName: carName,
-    carPrice: carPrice,
+    carPrice: carPrice * numberOfDays,
     startDate: start_date,
     endDate: end_date,
     fullFilled: false,
