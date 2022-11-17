@@ -30,16 +30,16 @@ const ReserveSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  price: {
+  carPrice: {
     type: Number,
     required: true,
   },
   startDate: {
-    type: String,
+    type: Date,
     required: true
   },
   endDate: {
-    type: String,
+    type: Date,
     required: true
   },
   fullFilled: {

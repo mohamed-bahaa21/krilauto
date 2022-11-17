@@ -218,9 +218,11 @@
             <% if(user.account_type=="User" ) { %>
               <a href="/reserve" class="action-btn">
                 <ion-icon name="car-sport-outline"></ion-icon>
-                <span class="count-b">
-                  <ion-icon name="alert-outline"></ion-icon>
-                </span>
+                <% if(user.cart !== "") { %>
+                  <span class="count-b">
+                    <ion-icon name="alert-outline"></ion-icon>
+                  </span>
+                <% } %>
               </a>
               <% } %>
 

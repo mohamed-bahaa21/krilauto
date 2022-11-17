@@ -19,8 +19,8 @@ const {
 
 // ===================================
 router.get('/', (req, res) => {
-  Cars.find().sort({freeFrom: -1}).limit(9).then(cars => {
-    res.render('index', { 
+  Cars.find().sort({ freeFrom: -1 }).limit(9).then(cars => {
+    res.render('index', {
       user: req.user,
       cars: cars
     })
@@ -46,7 +46,7 @@ router.get('/profile', ensureAuthenticated, (req, res) => {
   // console.log('====================================');
   if (account_type == "User") {
     try {
-      Reserves.find({ '_id': { $in: req.user.reserves } }).then(reserves => {
+      Reserves.find({ '_id': { $in: req.user.reserves }, fullFilled: true }).then(reserves => {
         res.render('profile', {
           user: req.user,
           reserves: reserves
@@ -211,55 +211,73 @@ const { createOrder, capturePayment } = require('../services/paypal');
 
 router.get('/reserve', ensureAuthenticated, async (req, res) => {
   try {
-    Reserves.findOne({ _id: req.user.cart }).then(reserve => {
-      if (reserve) {
+    Reserves.find({ '_id': { $in: req.user.reserves }, fullFilled: false }).then(reserves => {
+      if (reserves) {
         res.render('reserve', {
           user: req.user,
-          reserve: reserve,
+          reserves: reserves,
         });
       } else {
         res.render('reserve', {
           user: req.user,
-          reserve: "no reserve",
+          reserves: "no reserves",
         });
       }
     });
   } catch (error) {
     res.render('reserve', {
       user: req.user,
-      reserve: "no reserve",
+      reserves: "no reserves",
     });
   }
 });
 
 // create a new order
-router.post("/create-reserve", async (req, res) => {
-  let { carId,
-    agencyId,
-    carName,
-    startDate,
-    endDate,
-    price } = req.body;
+router.post("/user-create-reserve", async (req, res) => {
+  let { userId, carId, agencyId,
+    agencyName, carName, carPrice, carCity, dates } = req.body;
+
+  let start_date = dates.slice(0, 10);
+  let end_date = dates.slice(13, 23);
 
   let new_reserve = new Reserves({
     userId: req.user._id,
     agencyId: agencyId,
     carId: carId,
     userName: req.user.name,
-    agencyName: req.user.name,
+    agencyName: agencyName,
     carName: carName,
-    price: price,
-    startDate: startDate,
-    endDate: endDate,
+    carPrice: carPrice,
+    startDate: start_date,
+    endDate: end_date,
     fullFilled: false,
   })
 
   req.user.cart = new_reserve._id;
   new_reserve.save().then(() => {
-    req.flash('success_msg', "Reserve was created Successfully");
-    res.redirect('/reserve');
+    Users.findOneAndUpdate({ _id: req.user._id }, { $push: { reserves: new_reserve._id } }).then(() => {
+      Agencies.findOneAndUpdate({ _id: agencyId }, { $push: { reserves: new_reserve._id } }).then(() => {
+        req.flash('success_msg', "Reserve was created Successfully");
+        res.redirect('/reserve');
+      })
+    })
   })
+
 });
+
+router.delete('/user-delete-reserve/:reserveId', ensureAuthenticated, (req, res) => {
+  let reserveId = req.params.reserveId;
+  Reserves.findOneAndDelete({ _id: reserveId }).then(() => {
+    Agencies.findOneAndUpdate({ _id: req.user._id }, { $pull: { reserves: reserveId } }).then(() => {
+      Users.findOneAndUpdate({ _id: req.user._id }, { $pull: { reserves: reserveId } }).then(() => {
+
+        req.flash('success_msg', 'Car was deleted successfully');
+        res.redirect('/reserve');
+
+      })
+    })
+  })
+})
 
 // create a new order
 router.post("/reserve", async (req, res) => {

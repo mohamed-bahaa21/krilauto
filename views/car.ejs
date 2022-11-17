@@ -85,10 +85,30 @@
                     </div>
 
 
+                    <form action="/user-create-reserve" method="post" class="header-search-container" style="width: fit-content; box-shadow: 0 0 0 0">
 
-                    <button class="add-cart-btn" style="display: inline-block;">
-                      <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
-                    </button>
+                        <% if(!user) { %>
+                          <button type="submit" class="add-cart-btn"
+                            style="display: inline-block;" disabled>
+                            <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                          </button>
+                        <% } else { %> 
+                          <input type="hidden" value="<%= car._id %>" name="carId" class="email-field" required>
+                          <input type="hidden" value="<%= car.agencyId._id %>" name="agencyId" class="email-field" required>
+                          <input type="hidden" value="<%= car.agencyId.name %>" name="agencyName" class="email-field" required>
+                          <input type="hidden" value="<%= car.name %>" name="carName" class="email-field" placeholder="Name" required>
+                          <input type="hidden" value="<%= car.price %>" name="carPrice" class="email-field" placeholder="Price" required>
+                          <input type="hidden" value="<%= car.city %>" name="carCity" class="email-field" placeholder="City" required>
+
+                          <input data-start="" data-end="" type="search" name="dates"
+                            class="search-field d-block my-4 mx-auto" style="border: 1px solid; margin-bottom: 15px;" required>
+                            
+                          <button type="submit" class="add-cart-btn"
+                            style="display: inline-block;">
+                            <ion-icon name="car-sport-outline" style="color: var(--white); font-size: 2em;"></ion-icon>
+                          </button>
+                        <% } %>
+                    </form>
 
                   </div>
 

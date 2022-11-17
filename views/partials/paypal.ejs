@@ -7,7 +7,7 @@
         .Buttons({
             // Sets up the transaction when a payment button is clicked
             createOrder: function (data, actions) {
-                return fetch("/reserve", {
+                return fetch("/reservee", {
                     method: "post",
                     // use the "body" param to optionally pass additional order information
                     // like product ids or amount
