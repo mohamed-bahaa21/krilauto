@@ -312,7 +312,7 @@ router.post("/reserves/:reserveID/capture", async (req, res) => {
   const { reserveID } = req.params;
   let { orderId } = req.body;
   const captureData = await capturePayment(orderId);
-  
+
   if (captureData) {
     Reserves.findOneAndUpdate({ _id: reserveID }, { orderId: orderId, fullFilled: true }).then(() => {
       res.json(captureData);
@@ -361,12 +361,47 @@ router.get('/cars/:carId', async (req, res) => {
   }
 });
 
+const url = require('url');
+const querystring = require('querystring');
+
+// User Car
+router.get('/search', async (req, res) => {
+  let { city_name, start_date, end_date } = req.session.search;
+  let { model } = req.query;
+
+  if (!city_name || !start_date || !end_date || !model) return res.redirect('/')
+
+  try {
+    Cars.find({
+      city: city_name,
+      freeFrom: {
+        $gte: new Date(start_date),
+        $lt: new Date(end_date)
+      },
+      model: model
+    }).then(cars => {
+      res.render('search', {
+        user: req.user,
+        cars: cars,
+        start_date, end_date, city_name,
+      });
+    })
+
+  } catch (error) {
+    res.render('search', {
+      user: req.user,
+      start_date, end_date, city_name,
+    });
+  }
+});
 // User Car
 router.post('/search', async (req, res) => {
   let { dates, city_name } = req.body;
   // let date_sample = "01/02/2022 - 24/03/2022";
   let start_date = dates.slice(0, 10);
   let end_date = dates.slice(13, 23);
+
+  req.session.search = { city_name, start_date, end_date }
   // res.send({ car_name, start_date, end_date, city_name });
 
   try {
