@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krilauto</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="/images/logo/MB.png" type="image/x-icon">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/css/style-prefix.css">
+  <link rel="stylesheet" href="/css/table.css">
+  <link rel="stylesheet" href="/css/checkout-steps.css">
+  <link rel="stylesheet" href="/css/paypal.css" />
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
+  <style>
+    .daterangepicker .calendar-table th,
+    .daterangepicker .calendar-table td {
+      line-height: inherit;
+      white-space: inherit;
+      vertical-align: inherit;
+      min-width: inherit;
+      width: inherit;
+      height: inherit;
+      line-height: inherit;
+      border-radius: inherit;
+      border: inherit;
+      white-space: inherit;
+      cursor: pointer;
+      /* font-size: inherit; */
+      /* text-align: inherit; */
+    }
+
+    .daterangepicker td.available,
+    .daterangepicker th.available {
+      background-color: var(--white)
+    }
+
+    .daterangepicker td.in-range {
+      background-color: #f8ebeb;
+    }
+
+    .daterangepicker td.active,
+    .daterangepicker td.active:hover {
+      background-color: #1a100f;
+      color: #fff;
+    }
+
+    table td {
+      padding: 10px;
+    }
+
+    .daterangepicker .drp-buttons .btn {
+      padding: inherit;
+    }
+
+    .btn {
+      width: inherit;
+      height: inherit;
+      background: #1a100f;
+      border: 1px dotted black;
+      font-size: 17px;
+      color: #fff;
+      padding: inherit;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 auto;
+      display: inline-block;
+    }
+
+    .next.available {
+      color: white !important;
+    }
+
+    .header-search-container form {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .header-search-container form input {
+      height: fit-content;
+      margin: 0;
+      border-radius: 0 !important;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!--
+    - HEADER
+  -->
+
+  <div class="overlay" data-overlay></div>
+
+  <header>
+
+    <div class="header-top">
+
+      <div class="container">
+
+        <ul class="header-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="header-alert-news">
+          <p>
+            <b></b>
+          </p>
+        </div>
+
+        <div class="header-top-actions">
+
+          <select name="currency">
+
+            <option value="usd">USD &dollar;</option>
+
+          </select>
+
+          <select name="language">
+            <option value="fr">Fran&ccedil;ais</option>
+          </select>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="header-main">
+
+      <div class="container">
+
+        <a href="/admin/dashboard" class="header-logo">
+          <span style="font-weight: bold; color: var(--eerie-black); font-size: 1.5em;">Krilauto</span>
+        </a>
+
+        <div class="header-search-container">
+        </div>
+
+        <div class="header-user-actions">
+
+          <a href="/admin/dashboard" class="action-btn">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </a>
+
+          <!-- <a href="#" class="action-btn">
+            <ion-icon name="notifications-circle-outline"></ion-icon>
+            <span class="count">5</span>
+          </a> -->
+
+        <% if(user !== undefined) { %>
+            <a href="/admin/signout" class="action-btn">
+                <ion-icon style="display: inline-block;" name="log-out-outline"></ion-icon>
+            </a>
+        <% } %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+    <a href="/admin/dashboard" class="action-btn">
+        <ion-icon name="person-circle-outline"></ion-icon>
+    </a>
+
+
+    <a href="/admin/dashboard" class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+    </a>
+
+    <button class="action-btn" data-mobile-menu-open-btn>
+    <ion-icon name="grid-outline"></ion-icon>
+    </button>
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      <div class="menu-top">
+        <!-- <h2 class="menu-title">Menu</h2> -->
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+
+
+      <div class="menu-bottom">
+
+        <ul class="menu-category-list">
+
+          <li class="menu-category">
+
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Language</p>
+
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+
+              <li class="submenu-category">
+                <a href="/admin/dashboard" class="submenu-title">English</a>
+              </li>
+
+            </ul>
+
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Currency</p>
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="/admin/dashboard" class="submenu-title">USD &dollar;</a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+
+        <ul class="menu-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <% if(user !==undefined) { %>
+          <li class="menu-category">
+            <a href="/admin/signout" class="action-btn" style="margin: 20px 0;">
+              <ion-icon styl e="display: inline-block;" name="log-out-outline"></ion-icon>
+              <span> Signout</span>
+            </a>
+          </li>
+          <% } %>
+
+      </div>
+
+    </nav>
+
+  </header>

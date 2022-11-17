@@ -1,0 +1,57 @@
+<%- include('./.phead.ejs') %>
+<%- include('../partials/messages.ejs') %>
+
+    <% if(users.length> 0) { %>
+        <!-- multistep form -->
+        <div id="msform">
+
+            <h2 class="fs-title">Users</h2>
+            <!-- <h3 class="fs-subtitle"></h3> -->
+            <table style="margin: 0 auto; scale: 0.90;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Reservations</th>
+                        <th>Verified</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user=> { %>
+                        <tr>
+                            <td><a href="#">
+                                    <%= user.name %>
+                                </a></td>
+                            <td><a href="#">
+                                    <%= user.email %>
+                                </a></td>
+                            <td>
+                                <%= user.reserves.length %>
+                            </td>
+                            <td>
+                                <%= user.verified %>
+                            </td>
+                            <td>
+                                <a href="/admin/delete-user/<%=user._id%>" class="delete-btn"
+                                    style="--fs-11: 0.875rem; margin-bottom: 15px;">Delete</a>
+                                <% if(!user.verified) { %>
+                                    <a href="/admin/verify-user/<%=user._id%>" class="delete-btn"
+                                        style="--fs-11: 0.875rem;">Verify</a>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+
+        </div>
+    <% } else { %>
+        <h3 class="showcase-title" style="align-self: center;">
+            <a href="/admin/dashboard" class="showcase-title" style="width: fit-content; margin: 20px auto;">
+                You don't have any user yet !
+            </a>
+        </h3>
+    <% } %>
+
+<%- include('./.ptail.ejs') %>

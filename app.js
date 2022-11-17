@@ -18,6 +18,7 @@ const app = express();
 // Passport service Config
 // require('./services/user.passport')(passport)
 // require('./services/agency.passport')(passport)
+// require('./services/admin.passport')(passport)
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
