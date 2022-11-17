@@ -1,3 +1,56 @@
 {
-    "add_new_car": "Ajouter une nouvelle voiture"
+    "trending_item": "Article tendance",
+    "the_best_car_ever": "La meilleure voiture de tous les temps",
+    "for_only": "Pour uniquement",
+    "jour": "jour",
+    "shop_now": "Acheter maintenant",
+    "new_arrivals": "Nouveaux arrivages",
+    "sale": "Vente",
+    "agency": "Agence",
+
+    "car_image": "Image de la voiture",
+    "car_name": "Nom de la voiture",
+    "start_date": "Date de début",
+    "end_date": "Date de fin",
+    "price": "Prix",
+
+    "go_back": "Retourner",
+    "payment_method": "Méthode de paiement",
+
+    "you_need_to_reserve_a_car_first": "Vous devez d'abord réserver une voiture",
+    "reservations": "Réservations",
+    "cover": "Couverture",
+    "agency_name": "Nom de l'agence",
+    "from": "De",
+    "until": "Jusqu'à",
+    "actions": "Actions",
+    "delete": "Supprimer",
+    "order": "Commande",
+    "total": "Totale",
+
+    "sign_in": "Connexion",
+    "account_type": "Type de compte",
+    "email_address": "Adresse e-mail",
+    "password": "Mot de passe",
+    "sign_up": "S'inscrire",
+    "user": "Utilisateur",
+    "user_name": "Nom d'utilisateur",
+
+    "will_be_shown_after_one_of_their_cars_is_reserved": "Sera affiché après la réservation d'une de leurs voitures",
+    "lorem_medium": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam tempore maiores esse facilis animi perspiciatis.",
+    "agencies_cars": "Voitures d'agences",
+
+    "update_your_car": "Mettre à jour votre voiture",
+    "update": "Mettre à jour",
+
+    "reserves": "Réserves",
+    "cars": "Voitures",
+
+    "add_new_car": "Ajouter une nouvelle voiture",
+    "add_a_new_car": "Ajouter une nouvelle voiture",
+    "add": "Ajouter",
+
+    "filter": "Filtre",
+    "model": "Modèle",
+    "Languages": "Langues"
 }
