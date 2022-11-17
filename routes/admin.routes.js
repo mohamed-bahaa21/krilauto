@@ -21,6 +21,12 @@ router.get('/signin', (req, res, next) => {
 
 router.post('/signin', (req, res, next) => {
   if (req.body.email == 'admin@admin.com' && req.body.password == "admin123") {
+
+    if (req.user) {
+      req.flash('success_msg', "signout first, admin !!");
+      return res.redirect('/')
+    }
+
     require('../services/admin.passport')(passport)
     passport.authenticate('admin-local', {
       successRedirect: '/admin/dashboard',

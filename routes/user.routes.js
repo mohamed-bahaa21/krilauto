@@ -580,6 +580,11 @@ router.post('/signup', (req, res) => {
 router.post('/signin', (req, res, next) => {
   let { user_type } = req.body;
 
+  if (req.user) {
+    req.flash('success_msg', "signout first, admin !!");
+    return res.redirect('/')
+  }
+
   if (user_type == "User") {
     require('../services/user.passport')(passport);
     passport.authenticate('user-local', {
