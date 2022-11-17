@@ -25,15 +25,21 @@
 
             <div class="banner-content">
 
-              <p class="banner-subtitle">Trending item</p>
-
-              <h2 class="banner-title">The Best car Ever</h2>
-
-              <p class="banner-text">
-                For Only &dollar; <b>20</b>.00 / day
+              <p class="banner-subtitle">
+                <%=translation.trending_item%>
               </p>
 
-              <a href="#" class="banner-btn">Shop now</a>
+              <h2 class="banner-title">
+                <%= translation.the_best_car_ever%>
+              </h2>
+
+              <p class="banner-text">
+                <%= translation.for_only%> &dollar; <b>20</b>.00 / <%= translation.day%>
+              </p>
+
+              <a href="#" class="banner-btn">
+                <%=translation.shop_now%>
+              </a>
 
             </div>
 
@@ -64,65 +70,71 @@
 
           <div class="car-main">
 
-            <h2 class="title">New Arrivals</h2>
+            <h2 class="title">
+              <%=translation.new_arrivals%>
+            </h2>
 
             <div class="car-grid">
 
               <!-- =========================== -->
-                <% cars.forEach((car, index)=> { %>
+              <% cars.forEach((car, index)=> { %>
 
-                  <div class="showcase">
+                <div class="showcase">
 
-                    <div class="showcase-banner">
-                      <img src="images/cars/car.jpeg" alt="car" class="car-img default" width="300">
-                      <img src="images/cars/car.jpeg" alt="car" class="car-img hover" width="300">
+                  <div class="showcase-banner">
+                    <img src="images/cars/car.jpeg" alt="car" class="car-img default" width="300">
+                    <img src="images/cars/car.jpeg" alt="car" class="car-img hover" width="300">
 
-                      <p class="showcase-badge angle black">sale</p>
+                    <p class="showcase-badge angle black">
+                      <%=translation.sale%>
+                    </p>
 
-                      <div class="showcase-actions">
+                    <div class="showcase-actions">
 
-                        <button class="btn-action">
-                          <ion-icon name="eye-outline"></ion-icon>
-                        </button>
+                      <button class="btn-action">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
 
 
 
-                        <button class="btn-action">
-                          <ion-icon name="car-sport-outline"></ion-icon>
-                        </button>
-                      </div>
+                      <button class="btn-action">
+                        <ion-icon name="car-sport-outline"></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="showcase-content">
+                    <a href="/agencies/<%=car.agencyId%>" class="showcase-category">
+                      <%=translation.agency%>
+                    </a>
+
+                    <h3>
+                      <a href="cars/<%= car._id %>" class="showcase-title">
+                        <%= car.name %>
+                      </a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
                     </div>
 
-                    <div class="showcase-content">
-                      <a href="/agencies/<%=car.agencyId%>" class="showcase-category">Agency</a>
-
-                      <h3>
-                        <a href="cars/<%= car._id %>" class="showcase-title">
-                          <%= car.name %>
-                        </a>
-                      </h3>
-
-                      <div class="showcase-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-icon name="star-outline"></ion-icon>
-                      </div>
-
-                      <div class="price-box">
-                        <p class="price">$<%= car.price %>
-                        </p>
-                        <del>$<%= car.price + 15 %></del>
-                      </div>
-
+                    <div class="price-box">
+                      <p class="price">$<%= car.price %>
+                      </p>
+                      <del>$<%= car.price + 15 %></del>
                     </div>
 
                   </div>
 
-                  <% }); %>
+                </div>
 
-                    <!-- =========================== -->
+                <% }); %>
+
+                  <!-- =========================== -->
 
             </div>
           </div>

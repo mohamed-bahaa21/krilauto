@@ -19,9 +19,9 @@
 </style>
 
 <% if(carsLength > 5 || !verified) { %> 
-    <button id="agency-add-car-btn" class="btn-newsletter" disabled="true">Add Car</button>
+    <button id="agency-add-car-btn" class="btn-newsletter" disabled="true"><%=translation.add_new_car%></button>
 <% } else { %> 
-    <button id="agency-add-car-btn" class="btn-newsletter">Add Car</button>
+    <button id="agency-add-car-btn" class="btn-newsletter"><%=translation.add_new_car%></button>
 <% } %>
 
 <div class="modal closed" agency-add-car-modal>
@@ -43,9 +43,7 @@
             <form action="/agency-add-car" method="POST">
 
                 <div class="newsletter-header">
-
-                    <h3 class="newsletter-title">Add a New Car.</h3>
-
+                    <h3 class="newsletter-title"><%=translation.add_a_new_car%>.</h3>
                 </div>
 
                 <input type="text" name="ownerId" value="<%=user._id%>" class="email-field" hidden readonly>
@@ -60,7 +58,7 @@
                 <input type="date" id="freeFrom" name="freeFrom" class="email-field" placeholder="Free From">
 
 
-                <button type="submit" class="btn-newsletter">Add</button>
+                <button type="submit" class="btn-newsletter"><%=translation.add%></button>
 
             </form>
 

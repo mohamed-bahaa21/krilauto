@@ -96,29 +96,29 @@
                     <div style="margin: 20px 0">
                         <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
                             class="shadow col-md-8 m-auto">
-                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign In</h3>
+                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i><%=translation.sign_in%></h3>
                             <br>
                             <form action="/signin" method="POST">
                                 <div class="form-group">
-                                    <label for="email">Account Type :</label>
+                                    <label for="email"><%=translation.account_type%>:</label>
                                     <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
                                         <option value="User">User</option>
                                         <option value="Agency">Agency</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email Address :</label>
+                                    <label for="email"><%=translation.email_address%>:</label>
                                     <input type="email" id="email" name="email" class="form-control"
                                         placeholder="Enter Your Email Address" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label for="password"><%=translation.password%></label>
                                     <input type="password" id="password" name="password" class="form-control"
                                         placeholder="Enter Your Password" />
                                 </div>
                                 <div style="text-align: center;">
                                     <button type="submit" class="main-btn">
-                                        <b>Sign in</b>
+                                        <b><%=translation.sign_in%></b>
                                     </button>
                                 </div>
                             </form>
@@ -134,39 +134,39 @@
                     <div style="margin: 20px 0">
                         <div style="padding: 4em 2em 3em 2em; border: 1px solid var(--eerie-black); border-radius: 10px; background: #fff"
                             class="shadow col-md-8 m-auto">
-                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i>Sign Up</h3>
+                            <h3 class="mb-3"><i class="fas fa-sign-in-alt"></i><%=translation.sign_up%></h3>
                             <br>
                             <form action="/signup" method="POST">
                                 <div class="form-group">
-                                    <label for="email">Account Type :</label>
+                                    <label for="email"><%=translation.account_type%> :</label>
                                     <select name="user_type" id="user_type" style="padding: 0 0 0 12px;">
-                                        <option value="User">User</option>
-                                        <option value="Agency">Agency</option>
+                                        <option value="User"><%=translation.user%></option>
+                                        <option value="Agency"><%=translation.agency%></option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">User Name :</label>
+                                    <label for="name"><%=translation.user_name%> :</label>
                                     <input type="name" id="name" name="name" class="form-control"
                                         placeholder="Enter Your Name" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email Address :</label>
+                                    <label for="email"><%=translation.email_address%> :</label>
                                     <input type="email" id="email" name="email" class="form-control"
                                         placeholder="Enter Your Email Address" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Password</label>
+                                    <label for="password"><%=translation.password%></label>
                                     <input type="password" id="password" name="password" class="form-control"
                                         placeholder="Enter Your Password" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="confirm-password">Password</label>
+                                    <label for="confirm-password"><%=translation.password%></label>
                                     <input type="password" id="confirm_password" name="confirm_password"
                                         class="form-control" placeholder="Confirm Your Password" />
                                 </div>
                                 <div style="text-align: center;">
                                     <button type="submit" class="main-btn">
-                                        <b>Sign up</b>
+                                        <b><%=translation.sign_up%></b>
                                     </button>
                                 </div>
                             </form>

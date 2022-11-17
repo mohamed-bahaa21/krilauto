@@ -4,11 +4,11 @@
     <%- include('./partials/messages.ejs') %>
 
         <div class="container">
-            <a style="text-decoration: underline;" href="/profile/cars">Go Back</a>
+            <a style="text-decoration: underline;" href="/profile/cars"><%=translation.go_back%></a>
 
             <form action="/profile/cars/<%=car._id%>" method="POST">
                 <div class="newsletter-header">
-                    <h3 class="newsletter-title">Update Your Car.</h3>
+                    <h3 class="newsletter-title"><%=translation.update_your_car%>.</h3>
                 </div>
 
                 <input type="text" name="_id" value="<%= car._id %>" class="email-field" hidden readonly>
@@ -28,7 +28,7 @@
                     placeholder="Free From" required>
 
 
-                <button type="submit" class="btn-newsletter">Update</button>
+                <button type="submit" class="btn-newsletter"><%=translation.update%></button>
 
             </form>
         </div>

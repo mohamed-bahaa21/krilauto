@@ -10,18 +10,18 @@
         <%- include('./partials/agency-add-car.ejs', {carsLength: cars.length, verified: user.verified}) %>
             <%- include('./partials/agency-update-car.ejs') %>
                 <div class="container">
-                    <a style="text-decoration: underline;" href="/profile">Go Back</a>
+                    <a style="text-decoration: underline;" href="/profile"><%=translation.go_back%></a>
                 </div>
 
                 <table style="margin: 0 auto; scale: 0.90;">
                     <thead>
                         <tr>
-                            <th>Car Image</th>
-                            <th>Car Name</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Price</th>
-                            <th>Actions</th>
+                            <th><%=translation.car_image%></th>
+                            <th><%=translation.car_name%></th>
+                            <th><%=translation.start_date%></th>
+                            <th><%=translation.end_date%></th>
+                            <th><%=translation.price%></th>
+                            <th><%=translation.actions%></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,9 +52,9 @@
                                 </td>
                                 <td>
                                     <a href="/profile/cars/<%=car._id%>" id="agency-update-car-btn"
-                                        class="btn-newsletter">Update</a>
+                                        class="btn-newsletter"><%=translation.update%></a>
                                     <a href="/profile/cars/delete/<%=car._id%>" id="agency-update-car-btn"
-                                        class="btn-newsletter">Remove</a>
+                                        class="btn-newsletter"><%=translation.delete%></a>
                                 </td>
                             </tr>
                             <% }); %>

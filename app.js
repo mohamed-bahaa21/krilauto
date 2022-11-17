@@ -46,6 +46,16 @@ app.use(
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// i18n
+var i18n = require("i18n-express");
+app.use(i18n({
+  translationsPath: path.join(__dirname, 'i18n'),
+  defaultLang: "fr",
+  siteLangs: ["fr", "en"],
+  textsVarName: 'translation',
+}));
+
 // Connect flash
 app.use(flash());
 // Global variables
@@ -53,6 +63,7 @@ app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+  if (!req.session.ulang) req.session.ulang = 'fr';
   next();
 });
 

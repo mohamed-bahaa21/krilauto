@@ -4,26 +4,26 @@
     <%- include('./partials/messages.ejs') %>
         <% if(reserves=="no reserves" ) { %>
             <h3 class="showcase-title" style="align-self: center;">
-                <a href="/" class="showcase-title" style="width: fit-content; margin: 20px auto;">You need to reserve a
-                    car
-                    first !</a>
+                <a href="/" class="showcase-title" style="width: fit-content; margin: 20px auto;">
+                    <%=translation.you_need_to_reserve_a_car_first%>
+                </a>
             </h3>
             <% } else { %>
                 <!-- multistep form -->
                 <div id="msform">
 
-                    <h2 class="fs-title">Reservations</h2>
+                    <h2 class="fs-title"><%=translation.reservations%></h2>
                     <!-- <h3 class="fs-subtitle"></h3> -->
                     <table style="margin: 0 auto; scale: 0.90;">
                         <thead>
                             <tr>
-                                <th>Cover</th>
-                                <th>Car Name</th>
-                                <th>Agency Name</th>
-                                <th>From</th>
-                                <th>Until</th>
-                                <th>Price</th>
-                                <th>Actions</th>
+                                <th><%=translation.cover%></th>
+                                <th><%=translation.car_name%></th>
+                                <th><%=translation.agency_name%></th>
+                                <th><%=translation.from%></th>
+                                <th><%=translation.until%></th>
+                                <th><%=translation.price%></th>
+                                <th><%=translation.actions%></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,9 +54,9 @@
                                             </td>
                                             <td>
                                                 <a href="/user-delete-reserve/<%=reserve._id%>" class="delete-btn"
-                                                    style="--fs-11: 0.875rem; margin-bottom: 15px;">Delete</a>
+                                                    style="--fs-11: 0.875rem; margin-bottom: 15px;"><%=translation.delete%></a>
                                                 <a href="/reserves/<%=reserve._id%>" class="delete-btn"
-                                                    style="--fs-11: 0.875rem;">Order</a>
+                                                    style="--fs-11: 0.875rem;"><%=translation.order%></a>
                                             </td>
                                         </tr>
                                         <% }) %>
@@ -66,7 +66,7 @@
                     <div
                         style="margin: 10px auto 0 auto; display: flex; width: fit-content; justify-content: end; align-items: center; border: 1px solid var(--cultured); padding: 0 10px !important;">
                         <span
-                            style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);">Total:
+                            style="margin: 0.15rem 0.5rem 0 0; font-weight: 600; font-size: 0.75em; color: var(--sonic-silver);"><%=translation.total%>
                         </span>
                         <h3 style="margin: 0 auto;">
                             <div class="price-box" style="display: flex;">

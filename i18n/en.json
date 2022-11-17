@@ -1,0 +1,55 @@
+{
+    "trending_item": "Trending Item",
+    "the_best_car_ever": "The Best car Ever",
+    "for_only": "For Only",
+    "day": "day",
+    "shop_now": "Shop now",
+    "new_arrivals": "New Arrivals",
+    "sale": "Sale",
+    "agency": "Agency",
+
+    "car_image": "Car Image",
+    "car_name": "Car Name",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "price": "Price",
+
+    "go_back": "go_back",
+    "payment_method": "payment_method",
+
+    "you_need_to_reserve_a_car_first": "you_need_to_reserve_a_car_first",
+    "reservations": "reservations",
+    "cover": "cover",
+    "agency_name": "agency_name",
+    "from": "from",
+    "until": "until",
+    "actions": "actions",
+    "delete": "delete",
+    "order": "order",
+    "total": "total",
+
+    "sign_in": "sign_in",
+    "account_type": "account_type",
+    "email_address": "email_address",
+    "password": "password",
+    "sign_up": "sign_up",
+    "user": "user",
+    "user_name": "user_name",
+
+    "will_be_shown_after_one_of_their_cars_is_reserved": "will_be_shown_after_one_of_their_cars_is_reserved",
+    "lorem_medium": "lorem_medium",
+    "agencies_cars": "agencies_cars",
+
+    "update_your_car": "update_your_car",
+    "update": "update",
+
+    "reserves": "reserves",
+    "cars": "cars",
+
+    "add_new_car": "add_new_car",
+    "add_a_new_car": "add_a_new_car",
+    "add": "add",
+
+    "filter": "filter",
+    "model": "model"
+}

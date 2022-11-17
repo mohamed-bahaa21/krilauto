@@ -19,6 +19,10 @@ const {
 
 
 // ===================================
+router.get('/set-lang/:lang', (req, res) => {
+  req.session.ulang = req.params.lang;  
+});
+
 router.get('/', (req, res) => {
   Cars.find().sort({ freeFrom: -1 }).limit(9).then(cars => {
     res.render('index', {
@@ -445,7 +449,10 @@ router.post('/upload', (req, res) => {
 });
 
 // User Auth
-router.get('/auth', forwardAuthenticated, (req, res) => res.render('auth', { user: req.user, }));
+router.get('/auth', forwardAuthenticated, (req, res) => {
+  console.log(req.session.ulang);
+  res.render('auth', { user: req.user, })
+});
 // User Signup
 router.post('/signup', (req, res) => {
   const {
